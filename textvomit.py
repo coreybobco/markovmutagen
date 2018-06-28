@@ -24,14 +24,14 @@ def main():
   markov_obj = Markov_Class()
   cutup_obj = Cutup_Class()
   if args.sample_file:
-    word_array = clean(sample_file(args.sample_file, args.aphorisms))
+    word_list = clean(sample_file(args.sample_file, args.aphorisms))
   else:
-    word_array = (clean(take_input()), args.chatlog, args.aphorisms)
+    word_list = (clean(take_input()), args.chatlog, args.aphorisms)
   if args.markov:
     output_length = args.markov
-    print(markov_obj.generate_output(word_array, output_length, format))
+    print(markov_obj.generate_output(word_list, output_length, format))
   if args.cutup:
-    cutup_obj.generate_output(word_array, args.cutup[0], args.cutup[1])
+    cutup_obj.generate_output(word_list, args.cutup[0], args.cutup[1])
 
 def sample_file(sample_length, aphorisms):
   print('Enter filename (file must be in relative path)')
@@ -64,7 +64,7 @@ def clean(source_text, format):
   print(source_text)
   sentence_delimiters = [".", "?", "!"]
   clause_delimiters = ["...", ";", "--"]
-  source_text = source_text.replace("---","--").replace("..", "...").replace("....", "...-")
+  source_text = source_text.replace("---","--").replace("..", "...").replace("....", "...")
   for char in (sentence_delimiters + clause_delimiters):
     source_text = source_text.replace(char, char + " ")
   if format == 'aphorisms':
@@ -77,8 +77,8 @@ def clean(source_text, format):
     useless = ["\t", "\n", "\""]
   for char in useless:
     source_text = source_text.replace(char, "")
-  word_array = source_text.split(" ")
-  return word_array
+  word_list = source_text.split(" ")
+  return word_list
 
 if __name__ == "__main__":
     main()

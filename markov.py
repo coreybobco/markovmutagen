@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import json
 import random
 import string
@@ -34,7 +34,7 @@ class Markov_Class:
         sample_pool.append(word)
     return sample_pool
 
-  def generate_output(self, word_array, output_length, format):
+  def generate_output(self, word_list, output_length, format):
     probs = { }
     sentence_starters = {}
     clause_starters = {}
@@ -47,11 +47,11 @@ class Markov_Class:
       sentence_delimiters = []
       clause_delimiters = []
       quotation_marks = []
-    word_array = [word for word in word_array if word != ""]
-    last_word = word_array[-1];
-    sentence_starters[word_array[0]] = 1;
+    word_list = [word for word in word_list if word != ""]
+    last_word = word_list[-1];
+    sentence_starters[word_list[0]] = 1;
     # record frequencies / classify words
-    for word in word_array:
+    for word in word_list:
       if len(last_word) > 0 and last_word[-1] in sentence_delimiters:
         if word not in sentence_starters.keys():
           sentence_starters[word] = 1

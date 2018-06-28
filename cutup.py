@@ -6,15 +6,15 @@ import string
 import sys
 
 class Cutup_Class:
-  def generate_output(self, word_array, min_block_size, max_block_size):
+  def generate_output(self, word_list, min_block_size, max_block_size):
     current_position = 0
     chunks = []
     while True:
       next_length = self.random_chunk_length(min_block_size, max_block_size)
       next_position = current_position + next_length
-      if next_position > len(word_array):
+      if next_position > len(word_list):
         break
-      chunks.append(word_array[current_position:next_position])
+      chunks.append(word_list[current_position:next_position])
       current_position = next_position
     random.shuffle(chunks)
     chunks = " ".join(map(lambda x: " ".join(x), chunks))

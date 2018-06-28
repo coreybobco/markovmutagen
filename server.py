@@ -17,7 +17,8 @@ def markov():
   cutup_max_size = False if request.args.get('cutupmin') == "false" else int(request.args.get('cutupmax'))
   if cutup_min_size:
     cutup = Cutup_Class()
-    return cutup.generate_output(clean(request.get_data().decode(encoding='UTF-8'), False, False), cutup_min_size, cutup_max_size)
+    return cutup.generate_output(clean(request.get_data().decode(encoding='UTF-8'), False, False), cutup_min_size,
+                                 cutup_max_size)
   else:
     markov = MarkovDictionary()
     wordcount = int(request.args.get('wordcount'))
