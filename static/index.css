@@ -1,0 +1,19 @@
+  div { display: inline-block; }
+  body { margin-left: 15px }
+  #body_container {width: 1500px}
+  #input_container {float:left; margin-bottom:10px; }
+  #input_container { margin-bottom:10px; }
+  textarea { display: inline-block; vertical-align: middle; width:550px }
+  #header { width: 1280px; }
+  #wordcount { width:50px; margin-bottom: 8px; }
+  #title { font: bold italic 32px Georgia, serif; margin: 8px 0px 0px -10px; text-align: center; }
+  .subtitle { font: italic 15px Georgia, serif;}
+  #attribution { float:right; clear:right; margin: -10px 36px 15px 0px }
+  .divider { font: bold 14px/30px Georgia, sans; text-align: center; vertical-align: top; margin-top:160px; margin-left:5px; }
+  button { height: 60px; width:130px;}
+  input[type=number]::-webkit-outer-spin-button, input[type=number]::-webkit-inner-spin-button { -webkit-appearance: none; }
+  input[type=number] { font: 12px Tahoma, sans; text-align: center; }
+  label[for^=include_input_] {margin-right: 10px; margin-bottom:0px; font-weight: normal;}
+  .cutup_block_size { width:21px; margin:0px 0px 5px 0px; }
+  #mode_selector { text-align: left; }
+  #cutup_block_size_container { font-weight: normal; text-align: center; }
