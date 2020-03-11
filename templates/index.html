@@ -1,6 +1,7 @@
 <html>
-  <head>
-  <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/notcouriersans" type="text/css"/>
+
+<head>
+  <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/notcouriersans" type="text/css" />
   <link href="https://fonts.googleapis.com/css?family=Almendra+Display&display=swap" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -8,176 +9,187 @@
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   <script src="static/index.js"></script>
   <link rel="stylesheet" href="static/index.css">
-  </head>
+</head>
 
-  <body>
-  <main id="text-vomit-container">
-  <section id="header">
-    <section id="title">
-      <h1><span>Text</span>Vomit</h1>
-    </section>
-    <section id="subtitle">
-      <section id="quote-container">
-        <figure id="quotation">
-        <p>“...today's writer resembles more a programmer than a tortured genius, brilliantly conceptualizing, constructing, executing, and maintaining a writing machine.”</p>
-      </figure>
-      <figcaption id="attribution">
-      —<a href="http://chronicle.com/article/Uncreative-Writing/128908/">kenneth goldsmith</a>
-      </figcaption>
-    </section>
-    </section>
-  </section>
-  <section id="input-output-container">
-  <section id="body-container">
-    <section id="input-container">
-      <p>Inputs</p>
-      <ul id="input_tab_list" class="nav nav-tabs nav-justified">
-        <li class="active"><a data-toggle="tab" href="#inputtab1">1</a></li>
-        <li><a data-toggle="tab" href="#inputtab2">2</a></li>
-        <li><a data-toggle="tab" href="#inputtab3">3</a></li>
-        <li><a data-toggle="tab" href="#inputtab4">4</a></li>
-        <li><a data-toggle="tab" href="#inputtab5">5</a></li>
-        <li><a data-toggle="tab" href="#inputtab6">6</a></li>
-      </ul>
-      <div class="tab-content">
-        <div id="inputtab1" class="tab-pane fade in active">
-           <textarea cols=78 rows=15 id=input placeholder="Paste, write, or refine input here."></textarea>
-        </div>
-        <div id="inputtab2" class="tab-pane fade in">
-           <textarea cols=78 rows=15 id=input placeholder="Paste, write, or refine input here"></textarea>
-        </div>
-        <div id="inputtab3" class="tab-pane fade in">
-           <textarea cols=78 rows=15 id=input placeholder="Paste, write, or refine input here"></textarea>
-        </div>
-        <div id="inputtab4" class="tab-pane fade in">
-           <textarea cols=78 rows=15 id=input placeholder="Paste, write, or refine input here"></textarea>
-        </div>
-        <div id="inputtab5" class="tab-pane fade in">
-           <textarea cols=78 rows=15 id=input placeholder="Paste, write, or refine input here"></textarea>
-        </div>
-        <div id="inputtab6" class="tab-pane fade in">
-           <textarea cols=78 rows=15 id=input placeholder="Paste, write, or refine input here"></textarea>
-        </div>
-      </div>
-    </section>
-    <section id="options-container">
-      <section id="include-input-container">
-        <label for="input-selection">Select Inputs:</label><br>
-        <label class="b-contain">
-          <input type ="checkbox" id="include_input_1" name="include_inputs" value=1 checked/>
-          <label for="include_input_1">
-            <span>1</span>
-          </label>
-            <div class="b-input"></div>
-          </label>
-        <label class="b-contain">
-          <input type ="checkbox" id="include_input_2" name="include_inputs" value=2 />
-          <label for="include_input_2">
-            <span>2</span>
-          </label>
-            <div class="b-input"></div>
-          </label>
-        <label class="b-contain">
-          <input type ="checkbox" id="include_input_3" name="include_inputs" value=3 />
-          <label for="include_input_3">
-            <span>3</span>
-          </label>
-            <div class="b-input"></div>
-          </label><br>
-        <label class="b-contain">
-          <input type ="checkbox" id="include_input_4" name="include_inputs" value=4 />
-          <label for="include_input_4">
-            <span>4</span>
-          </label>
-            <div class="b-input"></div>
-          </label>
-        <label class="b-contain">
-          <input type ="checkbox" id="include_input_5" name="include_inputs" value=5 />
-          <label for="include_input_5">
-            <span>5</span>
-          </label>
-            <div class="b-input"></div>
-          </label>
-        <label class="b-contain">
-          <input type ="checkbox" id="include_input_6" name="include_inputs" value=6 />
-          <label for="include_input_6">
-            <span>6</span>
-          </label>
-            <div class="b-input"></div>
-          </label>
+<body>
+  <main id="mutagen-container">
+    <section id="header">
+      <section id="title">
+        <h1><span>Markov</span>Mutagen</h1>
       </section>
-      <section id = "mode_selector">
-        <label for="mode_selector">Output Mode:</label><br>
-        <label class="b-contain">
-          <label for="prose"><span>Prose</span></label><br>
-          <input type ="radio" id="prose" name="mode_selector" checked>
-          <div class="b-input"></div>
-        </label><br>
-      <label class="b-contain">
-        <label for="aphorisms"><span>Aphorisms</span></label><br>
-        <input type ="radio" id="aphorisms" name="mode_selector" >
-        <div class="b-input"></div>
-      </label><br>
-      <label class="b-contain">
-        <label for="cutup"><span><a id="cutup-link" href="https://briongysin.com/cut-ups/">Cut-up</a></span></label><br>
-        <input type ="radio" id="cutup" name="mode_selector">
-        <div class="b-input"></div>
-        <input type ="radio" id="poem" name="mode_selector" class="hidden"><label for="poem" class="hidden">as Poem</label>
-      </label>
+      <section id="subtitle">
+        <section id="quote-container">
+          <figure id="quotation">
+            <p>“...today's writer resembles more a programmer than a tortured genius, brilliantly conceptualizing,
+              constructing, executing, and maintaining a writing machine.”</p>
+          </figure>
+          <figcaption id="attribution">
+            —<a href="http://chronicle.com/article/Uncreative-Writing/128908/">kenneth goldsmith</a>
+          </figcaption>
+        </section>
       </section>
-      <div id="cutup_block_size_container" class="hidden">
-        Block Size Between:<br>
-        <input class="cutup_block_size" type="number" value='2'/>and<input class='cutup_block_size' type='number' value='5'/>Words
-      </div>
-      <section id="wordcount-container">
-        <label for="wordcount">Output Length:</label>
-        <input id='wordcount' type='number' value='400'/><label for='wordcount'>Words</label><br>
-      </section>
-      <section id="generate-text-container">
-        <button id="generate-text"><label for="generate-text">Generate Text</label></button><br>
-      </section>
-      
     </section>
-    <section id="output-container">
-      <p>Outputs</p>
-      <ul id="output_tab_list" class="nav nav-tabs nav-justified">
-        <li class="active"><a data-toggle="tab" href="#outputtab1">A</a></li>
-        <li><a data-toggle="tab" href="#outputtab2">B</a></li>
-        <li><a data-toggle="tab" href="#outputtab3">C</a></li>
-        <li><a data-toggle="tab" href="#outputtab4">D</a></li>
-        <li><a data-toggle="tab" href="#outputtab5">E</a></li>
-        <li><a data-toggle="tab" href="#outputtab6">F</a></li>
-      </ul>
-      <div class="tab-content">
-        <div id="outputtab1" class="tab-pane fade in active">
-           <textarea cols=78 rows=15 id=input placeholder="Generated text will appear here. Switch tabs to save and edit multiple generated texts."></textarea>
-        </div>
-        <div id="outputtab2" class="tab-pane fade in">
-           <textarea cols=78 rows=15 id=input placeholder="Generated text will appear here. Switch tabs to save and edit multiple generated texts."></textarea>
-        </div>
-        <div id="outputtab3" class="tab-pane fade in">
-           <textarea cols=78 rows=15 id=input placeholder="Generated text will appear here. Switch tabs to save and edit multiple generated texts."></textarea>
-        </div>
-        <div id="outputtab4" class="tab-pane fade in">
-           <textarea cols=78 rows=15 id=input placeholder="Generated text will appear here. Switch tabs to save and edit multiple generated texts."></textarea>
-        </div>
-        <div id="outputtab5" class="tab-pane fade in">
-           <textarea cols=78 rows=15 id=input placeholder="Generated text will appear here. Switch tabs to save and edit multiple generated texts."></textarea>
-        </div>
-        <div id="outputtab6" class="tab-pane fade in">
-           <textarea cols=78 rows=15 id=input placeholder="Generated text will appear here. Switch tabs to save and edit multiple generated texts."></textarea>
-        </div>
-      </div>
-    </div>
-  </section>
+    <section id="input-output-container">
+      <section id="body-container">
+        <section id="input-container">
+          <p>Inputs</p>
+          <ul id="input_tab_list" class="nav nav-tabs nav-justified">
+            <li class="active"><a data-toggle="tab" href="#inputtab1">1</a></li>
+            <li><a data-toggle="tab" href="#inputtab2">2</a></li>
+            <li><a data-toggle="tab" href="#inputtab3">3</a></li>
+            <li><a data-toggle="tab" href="#inputtab4">4</a></li>
+            <li><a data-toggle="tab" href="#inputtab5">5</a></li>
+            <li><a data-toggle="tab" href="#inputtab6">6</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="inputtab1" class="tab-pane fade in active">
+              <textarea cols=78 rows=15 id=input placeholder="Paste, write, or refine input here."></textarea>
+            </div>
+            <div id="inputtab2" class="tab-pane fade in">
+              <textarea cols=78 rows=15 id=input placeholder="Paste, write, or refine input here"></textarea>
+            </div>
+            <div id="inputtab3" class="tab-pane fade in">
+              <textarea cols=78 rows=15 id=input placeholder="Paste, write, or refine input here"></textarea>
+            </div>
+            <div id="inputtab4" class="tab-pane fade in">
+              <textarea cols=78 rows=15 id=input placeholder="Paste, write, or refine input here"></textarea>
+            </div>
+            <div id="inputtab5" class="tab-pane fade in">
+              <textarea cols=78 rows=15 id=input placeholder="Paste, write, or refine input here"></textarea>
+            </div>
+            <div id="inputtab6" class="tab-pane fade in">
+              <textarea cols=78 rows=15 id=input placeholder="Paste, write, or refine input here"></textarea>
+            </div>
+          </div>
+        </section>
+        <section id="options-container">
+          <section id="include-input-container">
+            <label for="input-selection">Select Inputs:</label><br>
+            <label class="b-contain">
+              <input type="checkbox" id="include_input_1" name="include_inputs" value=1 checked />
+              <label for="include_input_1">
+                <span>1</span>
+              </label>
+              <div class="b-input"></div>
+            </label>
+            <label class="b-contain">
+              <input type="checkbox" id="include_input_2" name="include_inputs" value=2 />
+              <label for="include_input_2">
+                <span>2</span>
+              </label>
+              <div class="b-input"></div>
+            </label>
+            <label class="b-contain">
+              <input type="checkbox" id="include_input_3" name="include_inputs" value=3 />
+              <label for="include_input_3">
+                <span>3</span>
+              </label>
+              <div class="b-input"></div>
+            </label><br>
+            <label class="b-contain">
+              <input type="checkbox" id="include_input_4" name="include_inputs" value=4 />
+              <label for="include_input_4">
+                <span>4</span>
+              </label>
+              <div class="b-input"></div>
+            </label>
+            <label class="b-contain">
+              <input type="checkbox" id="include_input_5" name="include_inputs" value=5 />
+              <label for="include_input_5">
+                <span>5</span>
+              </label>
+              <div class="b-input"></div>
+            </label>
+            <label class="b-contain">
+              <input type="checkbox" id="include_input_6" name="include_inputs" value=6 />
+              <label for="include_input_6">
+                <span>6</span>
+              </label>
+              <div class="b-input"></div>
+            </label>
+          </section>
+          <section id="mode_selector">
+            <label for="mode_selector">Output Mode:</label><br>
+            <label class="b-contain">
+              <label for="prose"><span>Prose</span></label><br>
+              <input type="radio" id="prose" name="mode_selector" checked>
+              <div class="b-input"></div>
+            </label><br>
+            <label class="b-contain">
+              <label for="aphorisms" class="hidden"><span>Aphorisms</span></label><br>
+              <input type="radio" id="aphorisms" name="mode_selector" class="hidden">
+
+            </label><br>
+            <label class="b-contain">
+              <label for="cutup" class="hidden"><span><a id="cutup-link"
+                    href="https://briongysin.com/cut-ups/">Cut-up</a></span></label><br>
+              <input type="radio" id="cutup" name="mode_selector" class="hidden">
+
+              <input type="radio" id="poem" name="mode_selector" class="hidden"><label for="poem" class="hidden">as
+                Poem</label>
+            </label>
+          </section>
+          <div id="cutup_block_size_container" class="hidden">
+            Block Size Between:<br>
+            <input class="cutup_block_size" type="number" value='2' />and<input class='cutup_block_size' type='number'
+              value='5' />Words
+          </div>
+          <section id="wordcount-container">
+            <label for="wordcount">Output Length:</label>
+            <input id='wordcount' type='number' value='400' /><label for='wordcount'>Words</label><br>
+          </section>
+          <section id="generate-text-container">
+            <button id="generate-text"><label for="generate-text">Generate Text</label></button><br>
+          </section>
+
+        </section>
+        <section id="output-container">
+          <p>Outputs</p>
+          <ul id="output_tab_list" class="nav nav-tabs nav-justified">
+            <li class="active"><a data-toggle="tab" href="#outputtab1">A</a></li>
+            <li><a data-toggle="tab" href="#outputtab2">B</a></li>
+            <li><a data-toggle="tab" href="#outputtab3">C</a></li>
+            <li><a data-toggle="tab" href="#outputtab4">D</a></li>
+            <li><a data-toggle="tab" href="#outputtab5">E</a></li>
+            <li><a data-toggle="tab" href="#outputtab6">F</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="outputtab1" class="tab-pane fade in active">
+              <textarea cols=78 rows=15 id=input
+                placeholder="Generated text will appear here. Switch tabs to save and edit multiple generated texts."></textarea>
+            </div>
+            <div id="outputtab2" class="tab-pane fade in">
+              <textarea cols=78 rows=15 id=input
+                placeholder="Generated text will appear here. Switch tabs to save and edit multiple generated texts."></textarea>
+            </div>
+            <div id="outputtab3" class="tab-pane fade in">
+              <textarea cols=78 rows=15 id=input
+                placeholder="Generated text will appear here. Switch tabs to save and edit multiple generated texts."></textarea>
+            </div>
+            <div id="outputtab4" class="tab-pane fade in">
+              <textarea cols=78 rows=15 id=input
+                placeholder="Generated text will appear here. Switch tabs to save and edit multiple generated texts."></textarea>
+            </div>
+            <div id="outputtab5" class="tab-pane fade in">
+              <textarea cols=78 rows=15 id=input
+                placeholder="Generated text will appear here. Switch tabs to save and edit multiple generated texts."></textarea>
+            </div>
+            <div id="outputtab6" class="tab-pane fade in">
+              <textarea cols=78 rows=15 id=input
+                placeholder="Generated text will appear here. Switch tabs to save and edit multiple generated texts."></textarea>
+            </div>
+          </div>
+          </div>
+        </section>
+      </section>
     </section>
-  </section>
-  </section>
-  <section id="footer">
-    <section id="footer-text">
-    <a href="https://github.com/coreybobco/textvomit-markov-texteditor">Corey Bobco</a> 2020
-  </section>
-  </section>
+    </section>
+    <section id="footer">
+      <section id="footer-text">
+        <a href="https://github.com/coreybobco/textvomit-markov-texteditor">Corey Bobco</a> 2020
+      </section>
+    </section>
   </main>
-  </body>
-  </html>
+</body>
+
+</html>
