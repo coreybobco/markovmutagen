@@ -1,2 +1,4 @@
-Flask==1.0.2
-Werkzeug==0.15.2
+-e git+https://github.com/coreybobco/generativepoetry-py@master#egg=generativepoetry
+Flask==1.1.1
+spacy>=2.2.3
+Werkzeug==1.0.0
