@@ -21,8 +21,7 @@ onload = function(){
                 var block_sizes = $(".cutup_block_size").map(function(){return parseInt($(this).attr("value"),10);}).get();
                 post_parameters += "&cutupmin=" + Math.min.apply(Math, block_sizes) + "&cutupmax=" + Math.max.apply(Math, block_sizes)
             } else {
-                var post_parameters = "./markov?wordcount=" + document.querySelector("#wordcount").value + "&format=" + format;
-                post_parameters += "&cutupmin=" + false + "&cutupmax=" + false
+                var post_parameters = "./markov";
             }
             var req = new XMLHttpRequest()
             req.addEventListener("load", show_output)
