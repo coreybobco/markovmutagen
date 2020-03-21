@@ -2,6 +2,7 @@ FROM python:3.7.7
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
+RUN echo 'deb http://ftp.de.debian.org/debian buster main contrib' > /etc/apt/sources.list.d/fonts.list
 RUN echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections
 RUN apt-get update
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y libhunspell-dev hunspell-en-us poppler-utils libdb++-dev

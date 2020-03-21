@@ -116,20 +116,21 @@
               <div class="b-input"></div>
             </label><br>
             <label class="b-contain">
+              <label for="cutup"><span>Cutup</span></label><br>
+              <input type="radio" id="cutup" name="mode_selector" checked>
+              <div class="b-input"></div>
+            </label><br>
+            <label class="b-contain">
               <label for="aphorisms" class="hidden"><span>Aphorisms</span></label><br>
               <input type="radio" id="aphorisms" name="mode_selector" class="hidden">
 
             </label><br>
             <label class="b-contain">
-              <label for="cutup" class="hidden"><span><a id="cutup-link"
-                    href="https://briongysin.com/cut-ups/">Cut-up</a></span></label><br>
-              <input type="radio" id="cutup" name="mode_selector" class="hidden">
-
               <input type="radio" id="poem" name="mode_selector" class="hidden"><label for="poem" class="hidden">as
                 Poem</label>
             </label>
           </section>
-          <div id="cutup_block_size_container" class="hidden">
+          <div id="cutup_block_size_container">
             Block Size Between:<br>
             <input class="cutup_block_size" type="number" value='2' />and<input class='cutup_block_size' type='number'
               value='5' />Words
