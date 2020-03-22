@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from flask import Flask, request, render_template
-from generativepoetry.decomposer import cutup as cut
+from generativepoetry.decomposer import cutup as cutup_technique
+from generativepoetry.decomposer import markov as markov_technique
 
 def clean(source_text):
   # fix punctuation
@@ -30,7 +31,8 @@ def index():
 @app.route("/markov", methods=['POST'])
 def markov():
     cleaned_input = clean(request.get_data().decode(encoding='UTF-8'))
-    return markov(cleaned_input)
+    print(cleaned_input)
+    return " ".join(markov_technique(cleaned_input))
 
 @app.route("/cutup", methods=['POST'])
 def cutup():
@@ -38,7 +40,8 @@ def cutup():
     cutup_min_size =  int(request.args.get('cutupmin'))
     cutup_max_size =  int(request.args.get('cutupmax'))
     if cutup_min_size:
-        return " ".join(cut(cleaned_input, min_cutout_words=cutup_min_size, max_cutout_words=cutup_max_size))
+        return " ".join(cutup_technique(cleaned_input, min_cutout_words=cutup_min_size,
+                                        max_cutout_words=cutup_max_size))
 
 if __name__ == '__main__':
     app.run(
