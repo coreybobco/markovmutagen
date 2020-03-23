@@ -12,7 +12,7 @@ def client():
     with server.app.test_client() as client:
         yield client
 
-def test_index(client):
+def test_markov(client):
     """Start with a blank database."""
     input = "".join(['Alice was beginning to get very tired of sitting by her sister on the bank, and of having, '
                      'noting to do: once or twice she had peeped into the book her sister was reading, but it '

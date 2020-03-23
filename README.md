@@ -1,72 +1,19 @@
-## What is Text Vomit?
-Text Vomit is a basic command-line tool for "uncreative writing." Give it some text input, and Text Vomit will build a data structure (really, a probability table) for that input that looks something like this:
+## Introduction
 
->[word] -> [next_word] : [number of times next_word followed word in text input]
+"Unfortunately human effort, which always varies the arrangement of existing elements, cannot be applied to producing a single new element. A landscape in which nothing terrestrial figures is beyond the scope of our imagination." --Andre Breton, "Max Ernst" (1921)
 
-For example, consider this text input:
+"The true literature machine will be one that itself feels the need to produce disorder, as a reaction against its preceding production of order: a machine that will produce avant-garde work to free its circuits when they are choked by too long a procession of classicism." -Italo Calvino, Cybernetics and Ghosts (1967)
 
->The dog jumps and runs. The boy jumps high. The boy loves to take his dog to the park.
-  
-This would yield the following Markov Chain probability table:
-* The 
-    * dog: 1
-    * boy: 2
-* dog 
-  * jumps: 1
-  * runs: 1
-  * to: 
-* jumps
-  * and: 1
-  * high: 1
-* and
-  * runs: 1
+"today's writer resembles more a programmer than a tortured genius, brilliantly conceptualizing, constructing, executing, and maintaining a writing machine." -Kenneth Goldsmith, Uncreative Writing (2011)```
 
-And so forth. 
+A Markov chain is a stochastic model describing a sequence of possible events in which the probability of each event depends only on the state attained in the previous event. In the case of text generation, these probabilities are determined by word order of an input, which can be broken down into n-grams (units) of 1, 2, or 3 words. For the order-1 n-gram model, Markov text generation begins by selecting random word which begins a sentence and then selects a random word which followed that word, weighted by frequency of appearance: for instance, if in the input "The" is followed by "rhombus" thrice and "skeleton" once, there is a 75% chance the algorithm will select rhombus next and a 25% chance skeleton will be selected. If skeleton is selected, the word which follows skeleton in the original text will appear next, since skeleton appeared only once, but if rhombus is selected, then a random word which follows rhombus in the original passage will appear. The order 2 n-gram variant would proceed similarly, except it would start by randomly selecting "The rhombus" or "The skeleton" and then, if "The rhombus" was selected, randomly select a word which followed "The rhombus."
 
-Text Vomit will then use that data structure to generate output. It also keeps track of what words begin sentences and clauses, so when it outputs a word that ends a sentence, like a period, exclamation mark, or question mark, it next picks a word that began a sentence in the original passage. Likewise for clauses. To generate output then, Text Vomit picks a word which began a sentence in the original passage and then picks a random word which followed that word in the original passage, with words that followed it more often being weighted heavier. So the original output would yield something like this.
+By running multiple texts together through a Markov chain at the same time, it becomes possible to collage bits of text in novel, often nonsensical ways that often rebel from syntax and invert idiomatic constructions. (Software, after all, has no subconscious to veto awkward constructions before they arise to conscious thought.) There are several precedents to this technique. The cut-up technique, pioneered by the Dadaists and further developed by [William S. Burroughs](https://www.writing.upenn.edu/~afilreis/88v/burroughs-cutup.html) and Brion Gysin, rearranged cut-up blocks of text from multiple pages to invent a new body of text. In the 1980s, programmers realized the parodic potential of Markov chain algorithms when applied to writing and released [Dissociated Press](http://catb.org/jargon/html/D/Dissociated-Press.html), a plug-in for the eMacs text editor. Following in their footsteps, Jamie Zawinski released the C program dadadodo (https://www.jwz.org/dadadodo/) which generates text from an input file.
 
->The dog to take his dog to take his dog jumps high. The dog to take his dog jumps high. The boy jumps high. The boy jumps and runs.
+With Markov Mutagen, you can easily combine and run inputs through a Markov text generator or a simulation of the cut-up technique. You are encouraged to combine, edit, and collage the outputs or even recycle the output as an input. Cybernetic writing is an open-ended game whose procedures are still being developed and combined in new ways. So try sampling text from a novel, news article, encyclopedia, conspiracy theory, theological treatise, or whatever else strikes your fancy. Try replacing a word (noun, verb, adjective) in one input with a word from another to manipulate the probabilities in the Markov model. The outputs of neural networks like [TalkToTransformer](http://talktotransformer.com) also serve well as inputs. And enjoy the fruits of your discordant prosody.  
 
-##Installation and Setup
-- Download and install the latest version of Python 3: https://www.python.org/downloads/
-- Open a terminal shell (CMD.exe or Power Shell on Windows, Applications->Utilities->Terminal on OSX)
-- Navigate to the directory where you have downloaded and extracted Text Vomit, probably something like: "cd Downloads/Text-Vomit/"
+## Running the server
 
-##Usage / Examples
-Start Text Vomit in a terminal with python3.4 textvomit.py and any of the arguments below. Once it is started, you will be prompted to input (paste or type) text. To indicate you are finished inputting text, press enter and then Ctrl-C.
+Because the generativepoetry module this depends on has cross-platform issues, I recommend using Docker to start and run the app:
 
-Generate 400 words of Markov chain based text using the -m or --markov flag.
-```bash
-python3.4 textvomit.py -m 400
-python3.4 textvomit.py --markov 400
-```
-
-Generate a Markov chain based poem that is 200 words long using the -p or --poem flag. This currently only works in conjunction with Markov chains.
-```bash
-python3.4 textvomit.py -m 200 -p
-python3.4 textvomit.py --markov 200 --poem
-```
-
-Cut-up Technique simulator: Break words into blocks of words between sizes 4 and 9 and rearrange the blocks.
-```bash
-python3.4 textvomit.py -c 4 9
-```
-
-Chatlog mode: Chatlog mode accepts text formatted in IRC log format as input, i.e.:
-> \<person1\> Hi are you a bot?
-
-> \<person2\> Maybe, I've forgotten by now. What is your credit card number?
-
-It will then generate a chatlog using Markov chains.
-```bash
-python3.4 textvomit.py -m 500 -cl
-```
-
-##Things To Try
-- You can paste together quotes from a couple different inputs for comic effect. For example, Nixon's resignation speech with descriptions of Reptilian shapeshifters.
-- Replacing different words from copied material with the same word before running it through the Markov chain text generator can yield interesting results since it increases the probability that word will appear in the output and also causes the output to jump around more.
-- You can paste in a whole novel if you want, but right now Text Vomit has no way of differentiating different paragraphs or chapters from one another, so the results are generally anarchic and unreadable. The best input length is usually 2 or 3 paragraphs worth of material.
-
-##Artistic Inspiration
-- Brion Gysin's Cut-Up Technique: http://briongysin.com/?p=157
-- Kenneth Goldsmith on Uncreative Writing: http://chronicle.com/article/Uncreative-Writing/128908/
+````docker-compose up```
