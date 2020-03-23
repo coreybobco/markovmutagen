@@ -20,7 +20,7 @@ def clean(source_text):
   for char in useless:
     source_text = source_text.replace(char, "")
   word_list = source_text.split(" ")
-  return word_list
+  return " ".join(word_list)
 
 app = Flask(__name__)
 
@@ -31,7 +31,6 @@ def index():
 @app.route("/markov", methods=['POST'])
 def markov():
     cleaned_input = clean(request.get_data().decode(encoding='UTF-8'))
-    print(cleaned_input)
     return " ".join(markov_technique(cleaned_input))
 
 @app.route("/cutup", methods=['POST'])

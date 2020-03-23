@@ -1,5 +1,5 @@
 Flask==1.1.1
-generativepoetry>=0.3.3
+generativepoetry>=0.3.4
 -e git+https://github.com/coreybobco/gutenberg_cleaner@master#egg=gutenberg_cleaner
 spacy>=2.2.3
 Werkzeug==1.0.0
