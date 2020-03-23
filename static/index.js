@@ -16,27 +16,12 @@ onload = function(){
         }
 
         if (input_tab_numbers.length && text_to_process.length > 2) {
-//            if (document.querySelector("#prose").checked) {
-//                format = "prose";
-//            } else if (document.querySelector("#poem").checked) {
-//                format =  "poem";
-//            } else if (document.querySelector("#aphorisms").checked) {
-//                format =  "aphorisms";
-//            } else if (document.querySelector("#play").checked) {
-//                format = "play";
-//            } else if  (document.querySelector("#chat").checked) {
-//                format = "chat" ;
-//            } else {
-//                console.log("Format not recognized");
-//            }
-
             if (document.querySelector("#cutup").checked) {
                 var post_parameters = "./cutup?wordcount=" + document.querySelector("#wordcount").value;
                 var block_sizes = $(".cutup_block_size").map(function(){return parseInt($(this).attr("value"),10);}).get();
                 post_parameters += "&cutupmin=" + Math.min.apply(Math, block_sizes) + "&cutupmax=" + Math.max.apply(Math, block_sizes)
             } else {
-                var post_parameters = "./markov?wordcount=" + document.querySelector("#wordcount").value + "&format=" + format;
-                post_parameters += "&cutupmin=" + false + "&cutupmax=" + false
+                var post_parameters = "./markov";
             }
             var req = new XMLHttpRequest()
             req.addEventListener("load", show_output)

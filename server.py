@@ -1,8 +1,26 @@
 #!/usr/bin/env python3
 from flask import Flask, request, render_template
-from generativepoetry.decomposer import cutup as cut
-from markov import Markov_Class as MarkovDictionary
-from textvomit import clean
+from generativepoetry.decomposer import cutup as cutup_technique
+from generativepoetry.decomposer import markov as markov_technique
+
+def clean(source_text):
+  # fix punctuation
+  print(source_text)
+  sentence_delimiters = [".", "?", "!"]
+  clause_delimiters = ["...", ";", "--"]
+  source_text = source_text.replace("---","--").replace("..", "...").replace("....", "...")
+  for char in (sentence_delimiters + clause_delimiters):
+    source_text = source_text.replace(char, char + " ")
+  # strip useless characters
+  source_text = source_text.replace("\n", " ")
+  if format == 'chat':
+    useless = ["\t", "\"", "\'"]
+  else:
+    useless = ["\t", "\n", "\""]
+  for char in useless:
+    source_text = source_text.replace(char, "")
+  word_list = source_text.split(" ")
+  return " ".join(word_list)
 
 app = Flask(__name__)
 
@@ -12,18 +30,17 @@ def index():
 
 @app.route("/markov", methods=['POST'])
 def markov():
-    markov = MarkovDictionary()
-    wordcount = int(request.args.get('wordcount'))
-    format = request.args.get('format')
-    return markov.generate_output(clean(request.get_data().decode(encoding='UTF-8'), format), wordcount, format)
+    cleaned_input = clean(request.get_data().decode(encoding='UTF-8'))
+    return " ".join(markov_technique(cleaned_input))
 
 @app.route("/cutup", methods=['POST'])
 def cutup():
-    cleaned_input = clean(request.get_data().decode(encoding='UTF-8'), format)
-    cutup_min_size = False if request.args.get('cutupmin') == "false" else int(request.args.get('cutupmin'))
-    cutup_max_size = False if request.args.get('cutupmin') == "false" else int(request.args.get('cutupmax'))
+    cleaned_input = clean(request.get_data().decode(encoding='UTF-8'))
+    cutup_min_size =  int(request.args.get('cutupmin'))
+    cutup_max_size =  int(request.args.get('cutupmax'))
     if cutup_min_size:
-        return " ".join(cut(cleaned_input, min_cutout_words=cutup_min_size, max_cutout_words=cutup_max_size))
+        return " ".join(cutup_technique(cleaned_input, min_cutout_words=cutup_min_size,
+                                        max_cutout_words=cutup_max_size))
 
 if __name__ == '__main__':
     app.run(
