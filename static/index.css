@@ -47,13 +47,18 @@
     text-shadow: 1px 1px 0px #333333;
   }
 
+  #quotation span{
+    font-family: "MachineLearning", serif; 
+    color: #333333;
+  }
+
   #subtitle {
     display: flex;
     flex-direction: column;
     text-align: justify;
     font-family: 'NotCourierSansRegular', monospace;
     font-weight: 200;
-    font-size: .8em;
+    font-size: .7em;
     width: 100vw;
   }
 
@@ -63,15 +68,14 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 23.5em;
     height: 100%;
   }
   #quotation { 
-    width: 21em;
+    width: 65vw;
   }
 
   #attribution { 
-    width: 11em;
+    
     align-self: flex-end;
     justify-self: flex-end;
   }
@@ -110,7 +114,7 @@
   }
   @media only screen and (min-width: 770px){
     #input-container, #output-container {
-      width: 20em;
+      width: 35vw;
       margin: 0 0 0 0;
     }
   }
@@ -175,7 +179,8 @@
   }
 
   #generate-text {
-    background: #EEEEEE;
+    background: #2CB32C;
+    color:#082213;
     align-self:center; 
     justify-self: center;
     width: 60%;
@@ -183,7 +188,9 @@
   }
 
   #generate-text:hover {
-    background: #2CB32C;
+    border-color: rgba(15, 154, 15, 1);
+    outline: .1em solid rgba(15, 154, 15, 1);
+    box-shadow: 0 0 0 2px rgba(0,128,0,0.5);
   }
 
   #generate-text:active {
@@ -256,6 +263,18 @@
   ::placeholder{
     font-style: italic;
   }
+
+#blurb-container {
+      padding: .5em 2.5em .5em 2.5em;
+      font-size: 1.1em;
+      text-align: left;
+      line-height: 2em;
+}
+
+#blurb-container h1 {
+    font-size: 2em;
+    font-family:'Almendra Display',monospace;
+}
 
 #footer{
   display: flex;
