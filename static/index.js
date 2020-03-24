@@ -8,38 +8,25 @@ onload = function(){
     button.onclick = function() {
         //Grab the values of which tabs the generator will pull input from       
         var input_tab_numbers = $("input[id^=include_input]:checked").map(function() { return this.value; }).get();
-        var source_text = "";
+        var text_to_process = "";
         for (index in input_tab_numbers) {
             tab_id = "#inputtab" + input_tab_numbers[parseInt(index,10)];
             console.log(tab_id);
-            source_text += document.querySelector(tab_id).querySelector("textarea").value + " ";
+            text_to_process += document.querySelector(tab_id).querySelector("textarea").value + " ";
         }
 
-        if (input_tab_numbers.length && source_text.length > 2) {
-            if (document.querySelector("#prose").checked) {
-                format = "prose";
-            } else if (document.querySelector("#poem").checked) {
-                format =  "poem";
-            } else if (document.querySelector("#aphorisms").checked) {
-                format =  "aphorisms";
-            } else if (document.querySelector("#play").checked) {
-                format = "play";
-            } else if  (document.querySelector("#chat").checked) {
-                format = "chat" ;
-            } else {
-                console.log("Format not recognized");
-            }
-            var post_parameters = "./markov?wordcount=" + document.querySelector("#wordcount").value + "&format=" + format;
+        if (input_tab_numbers.length && text_to_process.length > 2) {
             if (document.querySelector("#cutup").checked) {
+                var post_parameters = "./cutup?wordcount=" + document.querySelector("#wordcount").value;
                 var block_sizes = $(".cutup_block_size").map(function(){return parseInt($(this).attr("value"),10);}).get();
-                post_parameters += "&cutupmin=" + Math.min.apply(Math, block_sizes) + "&cutupmax=" + Math.max.apply(Math, block_sizes) 
+                post_parameters += "&cutupmin=" + Math.min.apply(Math, block_sizes) + "&cutupmax=" + Math.max.apply(Math, block_sizes)
             } else {
-                post_parameters += "&cutupmin=" + false + "&cutupmax=" + false 
+                var post_parameters = "./markov";
             }
             var req = new XMLHttpRequest()
             req.addEventListener("load", show_output)
             req.open("post", post_parameters, true)
-            req.send(source_text)
+            req.send(text_to_process)
         }
     }
     $(".cutup_block_size").change(function() {

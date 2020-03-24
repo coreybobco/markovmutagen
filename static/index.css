@@ -481,14 +481,16 @@
         transform: scale(0);
       }
 
-      .b-contain .b-input::before {
-        visibility: hidden;
-      }
+
       
       .b-contain input:focus + .b-input::before {
         visibility: visible;
       }
-      
+      /*
+      .b-contain .b-input::before {
+        visibility: hidden;
+      }
       .b-contain:first-child .b-input::before {
         visibility: hidden;
       }
+      */
