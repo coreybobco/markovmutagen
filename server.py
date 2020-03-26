@@ -31,7 +31,8 @@ def index():
 @app.route("/markov", methods=['POST'])
 def markov():
     cleaned_input = clean(request.get_data().decode(encoding='UTF-8'))
-    return " ".join(markov_technique(cleaned_input))
+    ngram_size = int(request.args.get('ngram_size'))
+    return " ".join(markov_technique(cleaned_input, ngram_size=ngram_size))
 
 @app.route("/cutup", methods=['POST'])
 def cutup():
