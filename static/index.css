@@ -18,10 +18,6 @@
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: 1em;
-    grid-template-areas:
-        "header"
-        "input-output-container"
-        "footer";
   }
 
   #header {
@@ -29,7 +25,6 @@
     flex-direction: column;
     text-align: justify;
     width: 100vw;
-    grid-area:"header";
     padding: 1em 0 0 0;  
   }
 
@@ -59,7 +54,6 @@
     font-family: 'NotCourierSansRegular', monospace;
     font-weight: 200;
     font-size: .7em;
-    width: 100vw;
   }
 
   #quote-container{
@@ -69,19 +63,23 @@
     align-items: center;
     justify-content: center;
     height: 100%;
+    width: 70vw;
   }
+
   #quotation { 
     width: 65vw;
   }
 
   #attribution { 
-    
     align-self: flex-end;
-    justify-self: flex-end;
+    width: 60%;
   }
 
-  #input-output-container{
-    grid-area:"input-output-container";
+@media only screen and (min-width: 770px){
+    #attribution {
+      
+      width: unset;
+    }
   }
 
   #body-container {
@@ -97,7 +95,7 @@
 
   @media only screen and (min-width: 770px){
     #body-container {
-      flex-flow: row wrap;
+      flex-flow: row nowrap;
       align-content: center;
       justify-content: space-around;
     }
@@ -108,10 +106,11 @@
     margin: 1em 0 1em 0;
     }
   
-  #input-container p, #output-container p{
-    font-size: 1.5em;
+  #input-container h1, #output-container h1{
     font-family:'Almendra Display',monospace;
+    font-size: 1.5em;
   }
+
   @media only screen and (min-width: 770px){
     #input-container, #output-container {
       width: 35vw;
@@ -126,7 +125,7 @@
     align-content: space-around;
     justify-content: space-around;
     width: 100%;
-    padding: 1em;
+    padding: .5em;
     }
 
   @media only screen and (min-width: 770px){
@@ -139,7 +138,8 @@
   }
 
   #options-container > section {
-    margin: .3em;
+    margin: .15em;
+    width: 100%;
   }
 
   a#cutup-link:link, a#cutup-link:visited  {
@@ -183,7 +183,7 @@
     color:#082213;
     align-self:center; 
     justify-self: center;
-    width: 60%;
+    width: 70%;
     height: 100%;
   }
 
@@ -215,25 +215,32 @@
     margin: .5em;
   }
   
-  label[for^=include_input_] {
+  label {
     font-weight: normal;
-    vertical-align: baseline;
   }
 
-
-
-  #cutup_block_size_container { 
-    font-weight: normal; 
-    text-align: center; 
+  #cutup_block_size_container, #markov_ngram_size_container { 
+    font-style: oblique;
+    padding: .5em;
+    max-height: 5em;
+    border: thin solid #CCCCCC;
+    text-align: center;
+    overflow-y: scroll;
+    overflow-x: hidden;
   }
 
-  .cutup_block_size { 
+  #cutup_block_size, .markov_ngram_size { 
     width:1.6em; 
-    margin:0 0 1em 0; 
+    margin:0 0 0 0; 
   }
 
-  #mode_selector { 
+  #technique_selector_container { 
     text-align: left; 
+  }
+  
+  #selectors { 
+    display: flex;
+    justify-content: space-evenly; 
   }
 
   textarea {
@@ -265,14 +272,22 @@
   }
 
 #blurb-container {
+      display: flex;
+      flex-direction: column;
       padding: .5em 2.5em .5em 2.5em;
-      font-size: 1.1em;
       text-align: left;
       line-height: 2em;
+      font-family: 'NotCourierSansRegular', monospace;
+      font-weight: 200;
+      width: 100vw;
+}
+
+#blurb-container p {
+  font-size: .7em;
 }
 
 #blurb-container h1 {
-    font-size: 2em;
+    font-size: 1.5em;
     font-family:'Almendra Display',monospace;
 }
 
@@ -283,15 +298,13 @@
   align-items: center;
   justify-content: center;
   width: 100vw;
-  grid-area:"footer";
-  padding: 1em 0 1em 0; 
+  padding: 0 0 1em 0;
 }
 
 #footer-text{
+  font-size: .6em;
   align-self: center;
   text-align: center;
-  width: 55vw;
-  padding: 1em 0 0 0; 
 }
 
   a:link {
@@ -311,8 +324,10 @@
   }
 
   html {
+    overflow-x: hidden;
     font-size: 62.5%; }
     body {
+          overflow-x: hidden;
     font-family: 'NotCourierSansRegular', monospace;
     font-size: 1.5em; 
     line-height: 1.6;

@@ -28,7 +28,7 @@
               too long a procession of classicism.”</p>
           </figure>
           <figcaption id="attribution">
-            — Italo Calvino, Cybernetics and Ghosts (1967)</a>
+            — Italo Calvino, Cybernetics and Ghosts (1967)
           </figcaption>
         </section> <br>
       </section>
@@ -36,7 +36,7 @@
     <section id="input-output-container">
       <section id="body-container">
         <section id="input-container">
-          <p>Inputs</p>
+          <h1>Inputs</h1>
           <ul id="input_tab_list" class="nav nav-tabs nav-justified">
             <li class="active"><a data-toggle="tab" href="#inputtab1">1</a></li>
             <li><a data-toggle="tab" href="#inputtab2">2</a></li>
@@ -112,24 +112,53 @@
               <div class="b-input"></div>
             </label>
           </section>
-          <section id="mode_selector">
-            <label for="mode_selector">Technique:</label><br>
-            <label class="b-contain">
-              <label for="markov"><span>Markov</span></label><br>
-              <input type="radio" id="markov" name="mode_selector" checked>
-              <div class="b-input"></div>
-            </label><br>
-            <label class="b-contain">
-              <label for="cutup"><span>Cut-up</span></label><br>
-              <input type="radio" id="cutup" name="mode_selector" checked>
-              <div class="b-input"></div>
-            </label><br>
+          <section id="technique_selector_container">
+            <label for="technique_selector">Technique:</label><br>
+            <section id="selectors">
+              <label class="b-contain">
+                <label for="markov"><span>Markov</span></label><br>
+                <input type="radio" id="markov" name="technique_selector">
+                <div class="b-input"></div>
+              </label><br>
+              <label class="b-contain">
+                <label for="cutup"><span>Cut-up</span></label><br>
+                <input type="radio" id="cutup" name="technique_selector">
+                <div class="b-input"></div>
+              </label><br>
+            </section>
+            <section id="markov_ngram_size_container" class="hidden">
+              <label for="ngram_selector">n-gram Size:</label><br>
+              <section id="ngram_selector">
+                <label class="b-contain">
+                  <input type="radio" class="markov_ngram_size" type="number" value=1 name="ngram_selector" />
+                  <label for="n-gram_size_1">
+                    <span>1</span>
+                  </label>
+                  <div class="b-input"></div>
+                </label>
+                <label class="b-contain">
+                  <input type="radio" class="markov_ngram_size" type="number" value=2 name="ngram_selector" />
+                  <label for="n-gram_size_2">
+                    <span>2</span>
+                  </label>
+                  <div class="b-input"></div>
+                </label>
+                <label class="b-contain">
+                  <input type="radio" class="markov_ngram_size" type="number" value=3 name="ngram_selector" />
+                  <label for="n-gram_size_3">
+                    <span>3</span>
+                  </label>
+                  <div class="b-input"></div>
+                </label>
+              </section>
+            </section>
+            <section id="cutup_block_size_container" class="hidden">
+              Block Size Between:<br>
+              <input id="cutup_block_size" class="cutup_block_size_min" type="number" value=2 /> and <input
+                id="cutup_block_size" class="cutup_block_size_max" type='number' value=5 /> words
+            </section>
           </section>
-          <div id="cutup_block_size_container">
-            Block Size Between:<br>
-            <input class="cutup_block_size" type="number" value='2' />and<input class='cutup_block_size' type='number'
-              value='5' />Words
-          </div>
+
           <section id="wordcount-container">
             <label for="wordcount">Output Length:</label>
             <input id='wordcount' type='number' value='400' /><label for='wordcount'>Words</label><br>
@@ -140,7 +169,7 @@
 
         </section>
         <section id="output-container">
-          <p>Outputs</p>
+          <h1>Outputs</h1>
           <ul id="output_tab_list" class="nav nav-tabs nav-justified">
             <li class="active"><a data-toggle="tab" href="#outputtab1">A</a></li>
             <li><a data-toggle="tab" href="#outputtab2">B</a></li>
@@ -175,104 +204,104 @@
                 placeholder="Generated text will appear here. Switch tabs to save and edit multiple generated texts."></textarea>
             </div>
           </div>
-          </div>
         </section>
       </section>
     </section>
-    <section id="subtitle">
-      <section id="blurb-container">
-        <figure id="blurb">
-          <h1>About Markov Chains</h1>
-          <hr>
-          <p>A Markov chain is a stochastic model describing a sequence of possible events in which the probability of
-            each event
-            depends only on the state attained in the previous event. In the case of text generation, these
-            probabilities are
-            determined by word order of an input, which can be broken down into n-grams (units) of 1, 2, or 3 words.
-            <br><br>
-            For
-            the order-1
-            n-gram model, Markov text generation begins by selecting random word which begins a sentence and then
-            selects a random
-            word which followed that word, weighted by frequency of appearance: for instance, if in the input "The" is
-            followed by
-            "rhombus" thrice and "skeleton" once, there is a 75% chance the algorithm will select rhombus next and a 25%
-            chance
-            skeleton will be selected. If skeleton is selected, the word which follows skeleton in the original text
-            will appear
-            next, since skeleton appeared only once, but if rhombus is selected, then a random word which follows
-            rhombus in the
-            original passage will appear. The order 2 n-gram variant would proceed similarly, except it would start by
-            randomly
-            selecting "The rhombus" or "The skeleton" and then, if "The rhombus" was selected, randomly select a word
-            which followed
-            "The rhombus."
-            <br><br>
-            <h1>Use in Literature</h1>
-            <hr>
-            <section id="subtitle">
-              <section id="quote-container">
-                <figure id="quotation">
-                  <p>“Unfortunately human effort, which always varies the arrangement of existing elements, cannot be
-                    applied
-                    to producing a
-                    single new element. A landscape in which nothing terrestrial figures is beyond the scope of our
-                    imagination.”</p>
-                </figure>
-                <figcaption id="attribution">
-                  —andré breton</a>
-                </figcaption>
-              </section>
-            </section>
-            <br>
-            By running multiple texts together through a Markov chain at the same time, it becomes possible to collage
-            bits of text
-            in novel, often nonsensical ways that often rebel from syntax and invert idiomatic constructions. (Software,
-            after all,
-            has no subconscious to veto awkward constructions before they arise to conscious thought.)
-            <br><br>
-            There are several
-            precedents
-            to this technique. The cut-up technique, pioneered by the Dadaists and further developed by <a
-              href="https://www.writing.upenn.edu/~afilreis/88v/burroughs-cutup.html" target=blank>William S.
-              Burroughs</a> and
-            Brion Gysin, rearranged cut-up blocks of text from multiple pages to invent a new body of text. In the
-            1980s,
-            programmers realized the parodic potential of Markov chain algorithms when applied to writing and released
-            <a href="http://catb.org/jargon/html/D/Dissociated-Press.html" target=blank>Dissociated
-              Press</a>, a plug-in for the eMacs text editor. Following in their footsteps, Jamie Zawinski released the
-            C program
-            <a href="https://www.jwz.org/dadadodo/" target=blank>dadadodo</a> which generates
-            text from an input file.
-            <br><br>
-            <h1>Markov Mutagen</h1>
-            <hr>
-            With Markov Mutagen, you can easily combine and run inputs through a Markov text generator or a simulation
-            of the cut-up
-            technique. You are encouraged to combine, edit, and collage the outputs or even recycle the output as an
-            input.
-            Cybernetic writing is an open-ended game whose procedures are still being developed and combined in new
-            ways.
-            <br><br>
-            So try
-            sampling text from a novel, news article, encyclopedia, conspiracy theory, theological treatise, or whatever
-            else
-            strikes your fancy. Try replacing a word (noun, verb, adjective) in one input with a word from another to
-            manipulate the
-            probabilities in the Markov model. The outputs of neural networks like <a
-              href="http://talktotransformer.com/" target=blank>TalkToTransformer</a> also serve well as
-            inputs. And
-            enjoy the fruits of your discordant prosody.
-          </p>
-          <hr>
-        </figure>
-      </section> <br>
+    </section>
+    <section id="blurb-container">
+      <figure id="blurb">
+        <h1>About Markov Chains</h1>
+        <hr>
+        <p>A Markov chain is a stochastic model describing a sequence of possible events in which the probability of
+          each event
+          depends only on the state attained in the previous event. In the case of text generation, these
+          probabilities are
+          determined by word order of an input, which can be broken down into n-grams (units) of 1, 2, or 3 words.
+          <br><br>
+          For
+          the order-1
+          n-gram model, Markov text generation begins by selecting random word which begins a sentence and then
+          selects a random
+          word which followed that word, weighted by frequency of appearance: for instance, if in the input "The" is
+          followed by
+          "rhombus" thrice and "skeleton" once, there is a 75% chance the algorithm will select rhombus next and a 25%
+          chance
+          skeleton will be selected. If skeleton is selected, the word which follows skeleton in the original text
+          will appear
+          next, since skeleton appeared only once, but if rhombus is selected, then a random word which follows
+          rhombus in the
+          original passage will appear. The order 2 n-gram variant would proceed similarly, except it would start by
+          randomly
+          selecting "The rhombus" or "The skeleton" and then, if "The rhombus" was selected, randomly select a word
+          which followed
+          "The rhombus."</p>
+        <br>
+        <h1>Use in Literature</h1>
+        <hr>
+        <section id="subtitle">
+          <section id="quote-container">
+            <figure id="quotation">
+              “Unfortunately human effort, which always varies the arrangement of existing elements, cannot be
+              applied
+              to producing a
+              single new element. A landscape in which nothing terrestrial figures is beyond the scope of our
+              imagination.”
+            </figure>
+            <figcaption id="attribution">
+              — André Breton, "Max Ernst" (1921)
+            </figcaption>
+          </section>
+        </section>
+        <br>
+        <p>
+          By running multiple texts together through a Markov chain at the same time, it becomes possible to collage
+          bits of text
+          in novel, often nonsensical ways that often rebel from syntax and invert idiomatic constructions. (Software,
+          after all,
+          has no subconscious to veto awkward constructions before they arise to conscious thought.)
+          <br><br>
+          There are several
+          precedents
+          to this technique. The cut-up technique, pioneered by the Dadaists and further developed by <a
+            href="https://www.writing.upenn.edu/~afilreis/88v/burroughs-cutup.html" target=blank>William S.
+            Burroughs</a> and
+          Brion Gysin, rearranged cut-up blocks of text from multiple pages to invent a new body of text. In the
+          1980s,
+          programmers realized the parodic potential of Markov chain algorithms when applied to writing and released
+          <a href="http://catb.org/jargon/html/D/Dissociated-Press.html" target=blank>Dissociated
+            Press</a>, a plug-in for the eMacs text editor. Following in their footsteps, Jamie Zawinski released the
+          C program
+          <a href="https://www.jwz.org/dadadodo/" target=blank>dadadodo</a> which generates
+          text from an input file.
+        </p>
+        <br>
+        <h1>Markov Mutagen</h1>
+        <hr>
+        <p>
+          With Markov Mutagen, you can easily combine and run inputs through a Markov text generator or a simulation
+          of the cut-up
+          technique. You are encouraged to combine, edit, and collage the outputs or even recycle the output as an
+          input.
+          Cybernetic writing is an open-ended game whose procedures are still being developed and combined in new
+          ways.
+          <br><br>
+          So try
+          sampling text from a novel, news article, encyclopedia, conspiracy theory, theological treatise, or whatever
+          else
+          strikes your fancy. Try replacing a word (noun, verb, adjective) in one input with a word from another to
+          manipulate the
+          probabilities in the Markov model. The outputs of neural networks like <a href="http://talktotransformer.com/"
+            target=blank>TalkToTransformer</a> also serve well as
+          inputs. And
+          enjoy the fruits of your discordant prosody.
+        </p>
+        <hr>
+      </figure>
     </section>
     <section id="footer">
       <section id="footer-text">
-        Python by <a href="https://github.com/coreybobco/">Corey Bobco</a> <br>
+        2020 | Python by <a href="https://github.com/coreybobco/">Corey Bobco</a> |
         Design by <a href="https://zacharyschulte.com/">Zachary Schulte</a> <br>
-        2020
       </section>
     </section>
   </main>
