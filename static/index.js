@@ -17,18 +17,20 @@ onload = function () {
 
         if (input_tab_numbers.length && text_to_process.length > 2) {
             if (document.querySelector("#cutup").checked) {
-                var post_parameters = "./cutup?wordcount=" + document.querySelector("#wordcount").value;
+                var post_parameters = "./cutup?";
                 var cutup_min = document.querySelector(".cutup_block_size_min").value;
                 var cutup_max = document.querySelector(".cutup_block_size_max").value;
                 var block_sizes = [cutup_min, cutup_max].map(numStr => parseInt(numStr));
                 console.log(block_sizes)
                 post_parameters += "&cutupmin=" + Math.min.apply(Math, block_sizes) + "&cutupmax=" + Math.max.apply(Math, block_sizes);
             } else {
-                var post_parameters = "./markov?wordcount=" + document.querySelector("#wordcount").value;
+                var post_parameters = "./markov?";
                 var ngram_size = document.querySelector(".markov_ngram_size:checked").value;
                 post_parameters += "&ngram_size=" + ngram_size;
             }
-            console.log(post_parameters);
+            var output_format = document.querySelector(".output_format:checked").value;
+            post_parameters += "&output_format=" + output_format
+            console.log(output_format);
             var req = new XMLHttpRequest()
             req.addEventListener("load", show_output)
             req.open("post", post_parameters, true)

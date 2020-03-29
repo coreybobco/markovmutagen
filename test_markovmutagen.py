@@ -27,5 +27,6 @@ def test_markov(client):
                       ';scientists dissecting an animal in their laboratory, a wise man surrounded by his devotees, ',
                       'politicians, poets expounding their rhetoric. These characters perform hilarious antics and ',
                       'intellectual games, which they see as serious attempts to find meaning and freedom.'])
-    response = client.post('/markov', data=input, follow_redirects=True)
-    assert response.split(' ')[0] in ['Alice', 'An', 'The', 'These']
+    for ngram_size in ['1','2'.'3']:
+        response = client.post('/markov?ngram_size=' + ngram_size, data=input, follow_redirects=True)
+        assert response.split(' ')[0] in ['Alice', 'An', 'The', 'These']

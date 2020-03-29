@@ -117,7 +117,7 @@
             <section id="selectors">
               <label class="b-contain">
                 <label for="markov"><span>Markov</span></label><br>
-                <input type="radio" id="markov" name="technique_selector">
+                <input type="radio" id="markov" name="technique_selector" checked>
                 <div class="b-input"></div>
               </label><br>
               <label class="b-contain">
@@ -130,7 +130,7 @@
               <label for="ngram_selector">n-gram Size:</label><br>
               <section id="ngram_selector">
                 <label class="b-contain">
-                  <input type="radio" class="markov_ngram_size" type="number" value=1 name="ngram_selector" />
+                  <input type="radio" class="markov_ngram_size" type="number" value=1 name="ngram_selector" checked/>
                   <label for="n-gram_size_1">
                     <span>1</span>
                   </label>
@@ -159,9 +159,24 @@
             </section>
           </section>
 
-          <section id="wordcount-container">
-            <label for="wordcount">Output Length:</label>
-            <input id='wordcount' type='number' value='400' /><label for='wordcount'>Words</label><br>
+          <section id="output-format-container">
+            <label for="output_format">Output Format:</label>
+            <section id="output_format_selector">
+                <label class="b-contain">
+                  <input type="radio" class="output_format" value="prose" name="output_format" checked/>
+                  <label for="prose">
+                    <span>Prose</span>
+                  </label>
+                  <div class="b-input"></div>
+                </label>
+                <label class="b-contain">
+                  <input type="radio" class="output_format" value="aphorisms" name="output_format" />
+                  <label for="aphorisms">
+                    <span>Aphorisms</span>
+                  </label>
+                  <div class="b-input"></div>
+                </label>
+              </section>
           </section>
           <section id="generate-text-container">
             <button id="generate-text"><label for="generate-text">Generate Text</label></button><br>
@@ -277,6 +292,19 @@
         <br>
         <h1>Markov Mutagen</h1>
         <hr>
+        <section id="subtitle">
+          <section id="quote-container">
+            <figure id="quotation">
+              But the marvelous abiity to reach out, without leaving the field of our experience,
+              to two distinct realities and bring them together to create a spark...and, by removing our systems
+              of reference, to disorient us within our own memories, that is what holds Dada's attention, for the time being.
+            </figure>
+            <figcaption id="attribution">
+              — André Breton, "Max Ernst" (1921)
+            </figcaption>
+          </section>
+        </section>
+        <br>
         <p>
           With Markov Mutagen, you can easily combine and run inputs through a Markov text generator or a simulation
           of the cut-up
