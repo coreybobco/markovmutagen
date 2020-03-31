@@ -30,3 +30,14 @@ def format_aphorisms(text):
     aphorism_number += 1
   return formatted_output
 
+def sample_document(document, format, sample_size):
+  sample = ''
+  if format == 'random_paragraphs':
+    for i in range(sample_size - 1):
+      sample += document.random_paragraph()
+  if format == 'random_sentences':
+    for i in range(sample_size - 1):
+      sample += document.random_sentence()
+  else:
+    sample = document
+  return sample
