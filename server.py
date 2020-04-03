@@ -14,9 +14,10 @@ app = Flask(__name__)
 def index():
   return render_template('index.html')
 
-def sample_gutenberg_document():
+@app.route("/sampledocument", methods=['GET'])
+def sample_document_routet():
     format = request.args.get('format')
-    sample_size = int(request.args.get('sample_size'))
+    sample_size = int(request.args.get('sample_size')) if request.args.get('sample_size') else False
     url = request.args.get('url') if request.args.get('url') else False
     if not url:
         language = False
@@ -25,13 +26,12 @@ def sample_gutenberg_document():
             language_set = get_metadata('language', document_id)
             language = list(language_set)[0] if len(language_set) else False
         url = "http://www.gutenberg.org/ebooks/" + str(document_id)
-    document = ParsedText(get_gutenberg_document(url))
-    return sample_document(document, format, sample_size)
-
-def get_internet_archive_document():
-    format = request.args.get('format')
-    url = request.args.get('url')
-    document = ParsedText(get_internet_archive_document(url))
+        document = ParsedText(get_gutenberg_document(url))
+    else:
+        if 'gutenberg.org' in url:
+            document = ParsedText(get_gutenberg_document(url))
+        if 'archive.org' in url:
+            document = ParsedText(get_internet_archive_document(url))
     return sample_document(document, format, sample_size)
 
 @app.route("/markov", methods=['POST'])

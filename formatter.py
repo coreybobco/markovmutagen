@@ -1,21 +1,27 @@
 import random
+import re
 import nltk
+
 
 def clean(source_text):
   # fix punctuation
   print(source_text)
-  sentence_delimiters = [".", "?", "!"]
+  sentence_delimiters = ["?", "!"]
   clause_delimiters = ["...", ";", "--"]
-  source_text = source_text.replace("---","--").replace("..", "...").replace("....", "...")
-  for char in (sentence_delimiters + clause_delimiters):
-    source_text = source_text.replace(char, char + " ")
+
   # strip useless characters
-  source_text = source_text.replace("\n", " ")
+  cleaned_text = source_text.replace("\n", " ")
   useless = ["\t", "\n", "\""]
   for char in useless:
-    source_text = source_text.replace(char, "")
-  word_list = source_text.split(" ")
-  return " ".join(word_list)
+    cleaned_text = cleaned_text.replace(char, "")
+  # Replace .... and .. with ...
+  cleaned_text = re.sub(r'(?<=[\sA-Za-z])\.\.(?=[\sA-Za-z])', '...', cleaned_text)
+  cleaned_text = re.sub(r'(?<=[\sA-Za-z])\.\.\.\.(?=[\sA-Za-z])', '...', cleaned_text)
+  # Replace --- with --
+  cleaned_text = re.sub(r'(?<=[\sA-Za-z])---(?=[\sA-Za-z])', '--', cleaned_text)
+  for char in (sentence_delimiters + clause_delimiters):
+    cleaned_text = cleaned_text.replace(char, char + " ")
+  return cleaned_text
 
 def format_aphorisms(text):
   sent_detector = nltk.data.load('tokenizers/punkt/english.pickle')
@@ -30,14 +36,15 @@ def format_aphorisms(text):
     aphorism_number += 1
   return formatted_output
 
+
 def sample_document(document, format, sample_size):
   sample = ''
   if format == 'random_paragraphs':
     for i in range(sample_size - 1):
       sample += document.random_paragraph()
-  if format == 'random_sentences':
+  elif format == 'random_sentences':
     for i in range(sample_size - 1):
       sample += document.random_sentence()
   else:
-    sample = document
+    sample = document.raw_text
   return sample
