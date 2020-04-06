@@ -12,7 +12,7 @@
 
   #mutagen-container{
     position: relative;
-    font-size: 1.5em;
+    
     width: 100vw;
     background: #F4F4F4;
     display: grid;
@@ -28,7 +28,7 @@
     padding: 1em 0 0 0;  
   }
 
-  #title { 
+  #title h1{ 
     font-family: "MachineLearning", serif;
     text-align: center; 
     color: #7AA300;
@@ -53,7 +53,7 @@
     text-align: justify;
     font-family: 'NotCourierSansRegular', monospace;
     font-weight: 200;
-    font-size: .7em;
+    
   }
 
   #quote-container{
@@ -91,6 +91,7 @@
     width: 100vw;
     height: 100%;
     padding: .5em .5em .5em .5em;
+    font-size: 1.5em;
   }
 
   @media only screen and (min-width: 770px){
@@ -108,7 +109,7 @@
   
   #input-container h1, #output-container h1{
     font-family:'Almendra Display',monospace;
-    font-size: 1.5em;
+    
   }
 
   @media only screen and (min-width: 770px){
@@ -118,7 +119,56 @@
     }
   }
 
-  #options-container {
+  #sampler-container {
+    
+    display:flex;
+    flex-flow: row wrap;
+    align-content: space-around;
+    justify-content: space-around;
+    width: 100%;
+    padding: .5em;
+    margin-top: .5em;
+    }
+
+  @media only screen and (min-width: 770px){
+    #sampler-container {
+      justify-content: flex-start;
+      align-self: flex-end;
+      
+    }
+  }
+
+  #sampler-container > section {
+    margin: .15em;
+    width: 100%;
+  }
+
+  #sampler-input-container{
+    display:flex;
+    flex-flow: row;
+    font-size: 1rem;
+    min-width: 15rem;
+  }
+
+  #sample_size_input {
+    width:3em; 
+    margin:0 0 0 0; 
+  }
+
+  #sampler-import-container{
+    display:flex;
+    flex-flow: row;
+    font-size: 1rem;
+    min-width: 15rem;
+    justify-content: right;
+  }
+  #options-container{
+    display:flex;
+    flex-flow: column wrap;
+    align-self: center;
+  }
+
+  #options-selectors-container {
     border:thin solid #CCCCCC;
     display:flex;
     flex-flow: row wrap;
@@ -129,7 +179,7 @@
     }
 
   @media only screen and (min-width: 770px){
-    #options-container {
+    #options-selectors-container {
       justify-content: flex-start;
       align-self: flex-end;
       width: 15em;
@@ -137,7 +187,7 @@
     }
   }
 
-  #options-container > section {
+  #options-selectors-container > section {
     margin: .15em;
     width: 100%;
   }
@@ -150,12 +200,6 @@
   a#cutup-link:hover, a#cutup-link:active{
     color:#0F9A0F;
     cursor: help;
-  }
-
-  #wordcount { 
-    width: 3em;
-    text-align: center;
-    vertical-align: baseline; 
   }
 
   input[type=number]:hover {
@@ -209,7 +253,6 @@
 
   input[type=number] { 
     border: 3px solid #DDD;
-    font-size: 1.2em;
     font-family: 'NotCourierSansRegular', monospace; 
     text-align: center; 
     margin: .5em;
@@ -217,24 +260,32 @@
   
   label {
     font-weight: normal;
+    cursor: pointer;
   }
 
   #cutup_block_size_container, #markov_ngram_size_container { 
     font-style: oblique;
     padding: .5em;
-    max-height: 5em;
+    height: 5em;
     border: thin solid #CCCCCC;
     text-align: center;
     overflow-y: scroll;
     overflow-x: hidden;
   }
 
-  #cutup_block_size, .markov_ngram_size { 
-    width:1.6em; 
+#input_selector_container {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: 0.5em;
+}
+
+  #cutup_block_size { 
+    width:2em; 
     margin:0 0 0 0; 
   }
 
-  #technique_selector_container { 
+  #technique_selector_container, #output_format_container{ 
     text-align: left; 
   }
   
@@ -249,7 +300,8 @@
     vertical-align: middle; 
     text-align: justify;
     padding: 1em;
-    width:100%; 
+    width:100%;
+    resize: none; 
   }
 
   textarea:hover{
@@ -283,11 +335,11 @@
 }
 
 #blurb-container p {
-  font-size: .7em;
+  
 }
 
 #blurb-container h1 {
-    font-size: 1.5em;
+    
     font-family:'Almendra Display',monospace;
 }
 
@@ -302,7 +354,7 @@
 }
 
 #footer-text{
-  font-size: .6em;
+  
   align-self: center;
   text-align: center;
 }
@@ -336,6 +388,7 @@
     
 
     h1, h2, h3, h4, h5, h6 {
+      font-family: 'Almendra Display', monospace;
       margin-top: 0;
       margin-bottom: 2rem;
       font-weight: 300; }
@@ -501,6 +554,10 @@
       .b-contain input:focus + .b-input::before {
         visibility: visible;
       }
+
+      .btn, .custom-select, .input-group-text {
+        font-size: 1.5rem;
+      }
       /*
       .b-contain .b-input::before {
         visibility: hidden;
@@ -509,3 +566,25 @@
         visibility: hidden;
       }
       */
+
+    .visually-hidden {
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    }
+    
+    /* Separate rule for compatibility, :focus-within is required on modern Firefox and Chrome */
+
+
+            input.visually-hidden:focus + label {
+            outline: thin dotted;
+            }
+            input.visually-hidden:focus-within + label {
+            outline: thin dotted;
+            }
+            
+            #fileSelect-container {
+            font-size: smaller;
+            }

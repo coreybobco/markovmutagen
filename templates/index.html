@@ -1,12 +1,25 @@
+<!DOCTYPE html>
 <html>
 
 <head>
   <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/notcouriersans" type="text/css" />
   <link href="https://fonts.googleapis.com/css?family=Almendra+Display&display=swap" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <link rel="apple-touch-icon" sizes="180x180" href="static/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="static/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="static/favicon-16x16.png">
+  <link rel="manifest" href="static/site.webmanifest">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
   <script src="static/index.js"></script>
   <link rel="stylesheet" href="static/index.css">
 </head>
@@ -36,165 +49,350 @@
     <section id="input-output-container">
       <section id="body-container">
         <section id="input-container">
-          <h1>Inputs</h1>
-          <ul id="input_tab_list" class="nav nav-tabs nav-justified">
-            <li class="active"><a data-toggle="tab" href="#inputtab1">1</a></li>
-            <li><a data-toggle="tab" href="#inputtab2">2</a></li>
-            <li><a data-toggle="tab" href="#inputtab3">3</a></li>
-            <li><a data-toggle="tab" href="#inputtab4">4</a></li>
-            <li><a data-toggle="tab" href="#inputtab5">5</a></li>
-            <li><a data-toggle="tab" href="#inputtab6">6</a></li>
+          <h3>Inputs</h3>
+          <ul id="input_tab_list" class="nav nav-tabs nav-justified" id="nav-tab" role="tablist">
+            <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#inputtab1">1</a></li>
+            <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#inputtab2">2</a></li>
+            <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#inputtab3">3</a></li>
+            <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#inputtab4">4</a></li>
+            <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#inputtab5">5</a></li>
+            <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#inputtab6">6</a></li>
           </ul>
-          <div class="tab-content">
-            <div id="inputtab1" class="tab-pane fade in active">
+          <div class="tab-content" class="form-control">
+            <div id="inputtab1" class="tab-pane fade active show" class="form-control">
               <textarea cols=78 rows=15 id=input placeholder="Paste, write, or refine input here."></textarea>
             </div>
-            <div id="inputtab2" class="tab-pane fade in">
-              <textarea cols=78 rows=15 id=input placeholder="Paste, write, or refine input here"></textarea>
+            <div id="inputtab2" class="tab-pane fade">
+              <textarea cols=78 rows=15 id=input placeholder="Paste, write, or refine input here."></textarea>
             </div>
-            <div id="inputtab3" class="tab-pane fade in">
-              <textarea cols=78 rows=15 id=input placeholder="Paste, write, or refine input here"></textarea>
+            <div id="inputtab3" class="tab-pane fade">
+              <textarea cols=78 rows=15 id=input placeholder="Paste, write, or refine input here."></textarea>
             </div>
-            <div id="inputtab4" class="tab-pane fade in">
-              <textarea cols=78 rows=15 id=input placeholder="Paste, write, or refine input here"></textarea>
+            <div id="inputtab4" class="tab-pane fade">
+              <textarea cols=78 rows=15 id=input placeholder="Paste, write, or refine input here."></textarea>
             </div>
-            <div id="inputtab5" class="tab-pane fade in">
-              <textarea cols=78 rows=15 id=input placeholder="Paste, write, or refine input here"></textarea>
+            <div id="inputtab5" class="tab-pane fade">
+              <textarea cols=78 rows=15 id=input placeholder="Paste, write, or refine input here."></textarea>
             </div>
-            <div id="inputtab6" class="tab-pane fade in">
-              <textarea cols=78 rows=15 id=input placeholder="Paste, write, or refine input here"></textarea>
+            <div id="inputtab6" class="tab-pane fade">
+              <textarea cols=78 rows=15 id=input placeholder="Paste, write, or refine input here."></textarea>
             </div>
+
           </div>
+          <section id="sampler-container">
+
+            <div class="input-group mb-3">
+
+              <select class="custom-select" id="inputGroupSelect01">
+                <option selected>Choose document to import...</option>
+                <!-- <option id="fileSelect"><label id="fileSelect">⇪ Upload .epub or .txt file</label></option> -->
+                <option value="random">✺ Random Project Gutenburg Document</option>
+                <option value="0">Alice in Wonderland</option>
+                <option value="0">Pride and Prejudice</option>
+                <option value="0">The Importance of Being Earnest</option>
+                <option value="0">Ion by Plato</option>
+              </select>
+              <input type="file" id="fileElem" accept=".epub,.txt" class="visually-hidden">
+
+              <!--
+              <div class="dropdown btn-group">
+                <button type="button" class="btn btn-outline-secondary">Import</button>
+                <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split"
+                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+
+
+
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink"
+                  id="sampler-input-container">
+
+                  <form class="px-4 py-3">
+                    <section>
+                      <label for="sample_selector">Sample Size:</label><br>
+                      <section class="form-check">
+                        <section id="sample_size_selector">
+
+                          <label href="#collapseExample3" data-toggle="collapse" class="b-contain">
+
+                            <label for="sample_selector_document">
+                              <span>Entire Document</span>
+                            </label><br>
+
+                            <input id="sample_selector_document" type="radio" class="sample_size" value=1
+                              name="sample_selector" checked>
+
+                            <div class="b-input"></div>
+
+                            </input>
+                          </label><br>
+
+                          <div data-parent="#sample_size_selector" class="collapse" id="collapseExample3"
+                            style="display:none">
+                          </div>
+
+
+                          <label class="b-contain" data-toggle="collapse" href="#collapseExample">
+
+                            <label for="sample_selector_paragraph">
+                              <span>Paragraphs</span>
+                            </label><br>
+
+                            <input id="sample_selector_paragraph" type="radio" class="sample_size" value=2
+                              name="sample_selector">
+                            <div class="b-input"></div>
+                          </label><br>
+
+                          <section data-parent="#sample_size_selector" class="collapse" id="collapseExample">
+                            <section class="card card-body mb-3" class="d-none">
+                              <input id="sample_size_input" type="number" value=2 /> random paragraphs
+                            </section>
+                          </section>
+
+                          <label href="#collapseExample2" data-toggle="collapse" class="b-contain">
+
+                            <label for="sample_selector_sentence">
+                              Sentences</span>
+                            </label><br>
+
+                            <input id="sample_selector_sentence" type="radio" class="sample_size" value=3
+                              name="sample_selector">
+
+                            <div class="b-input"></div>
+                          </label><br>
+
+                          <div data-parent="#sample_size_selector" class="collapse" id="collapseExample2">
+                            <section class="card card-body" class="d-none">
+                              <input id="sample_size_input" type="number" value=2 /> random sentences
+                            </section>
+                          </div>
+
+                        </section>
+                      </section>
+                    </section>
+                  </form>
+                </div>
+                -->
+            </div>
+            </div>
+
+            <section id="fileSelect-container">
+              <button type="button" class="btn btn-outline-secondary"><label id="fileSelect" for="fileElem">⇪ Upload
+                  .epub or .txt file</label></button>
+              <input type="file" id="fileElem" accept=".epub,.txt" class="visually-hidden">
+            </section>
+
+
+            <section id="sampler-input-container">
+              <div>
+
+                <form class="px-4 py-3">
+                  <section>
+                    <label for="sample_selector">Sample Size:</label><br>
+                    <section class="form-check">
+                      <section id="sample_size_selector">
+
+                        <label href="#collapseExample3" data-toggle="collapse" class="b-contain">
+
+                          <label for="sample_selector_document">
+                            <span>Entire Document</span>
+                          </label><br>
+
+                          <input id="sample_selector_document" type="radio" class="sample_size" value=1
+                            name="sample_selector" checked>
+
+                          <div class="b-input"></div>
+
+                          </input>
+                        </label><br>
+
+                        <div data-parent="#sample_size_selector" class="collapse" id="collapseExample3"
+                          style="display:none">
+                        </div>
+
+
+                        <label class="b-contain" data-toggle="collapse" href="#collapseExample">
+
+                          <label for="sample_selector_paragraph">
+                            <span>Paragraphs</span>
+                          </label><br>
+
+                          <input id="sample_selector_paragraph" type="radio" class="sample_size" value=2
+                            name="sample_selector">
+                          <div class="b-input"></div>
+                        </label><br>
+
+                        <section data-parent="#sample_size_selector" class="collapse" id="collapseExample">
+                          <section class="card card-body mb-3" class="d-none">
+                            <input id="sample_size_input" type="number" value=2 /> random paragraphs
+                          </section>
+                        </section>
+
+                        <label href="#collapseExample2" data-toggle="collapse" class="b-contain">
+
+                          <label for="sample_selector_sentence">
+                            Sentences</span>
+                          </label><br>
+
+                          <input id="sample_selector_sentence" type="radio" class="sample_size" value=3
+                            name="sample_selector">
+
+                          <div class="b-input"></div>
+                        </label><br>
+
+                        <div data-parent="#sample_size_selector" class="collapse" id="collapseExample2">
+                          <section class="card card-body" class="d-none">
+                            <input id="sample_size_input" type="number" value=2 /> random sentences
+                          </section>
+                        </div>
+
+                      </section>
+                    </section>
+                  </section>
+                </form>
+              </div>
+            </section>
+            <section id="sampler-import-container">
+              <div class="dropdown btn-group">
+
+                <button type="button" class="btn btn-outline-secondary">Import</button>
+            </section>
+          </section>
+
         </section>
         <section id="options-container">
-          <section id="include-input-container">
-            <label for="input-selection">Select Inputs:</label><br>
-            <label class="b-contain">
-              <input type="checkbox" id="include_input_1" name="include_inputs" value=1 checked />
-              <label for="include_input_1">
-                <span>1</span>
-              </label>
-              <div class="b-input"></div>
-            </label>
-            <label class="b-contain">
-              <input type="checkbox" id="include_input_2" name="include_inputs" value=2 />
-              <label for="include_input_2">
-                <span>2</span>
-              </label>
-              <div class="b-input"></div>
-            </label>
-            <label class="b-contain">
-              <input type="checkbox" id="include_input_3" name="include_inputs" value=3 />
-              <label for="include_input_3">
-                <span>3</span>
-              </label>
-              <div class="b-input"></div>
-            </label><br>
-            <label class="b-contain">
-              <input type="checkbox" id="include_input_4" name="include_inputs" value=4 />
-              <label for="include_input_4">
-                <span>4</span>
-              </label>
-              <div class="b-input"></div>
-            </label>
-            <label class="b-contain">
-              <input type="checkbox" id="include_input_5" name="include_inputs" value=5 />
-              <label for="include_input_5">
-                <span>5</span>
-              </label>
-              <div class="b-input"></div>
-            </label>
-            <label class="b-contain">
-              <input type="checkbox" id="include_input_6" name="include_inputs" value=6 />
-              <label for="include_input_6">
-                <span>6</span>
-              </label>
-              <div class="b-input"></div>
-            </label>
-          </section>
-          <section id="technique_selector_container">
-            <label for="technique_selector">Technique:</label><br>
-            <section id="selectors">
-              <label class="b-contain">
-                <label for="markov"><span>Markov</span></label><br>
-                <input type="radio" id="markov" name="technique_selector" checked>
-                <div class="b-input"></div>
-              </label><br>
-              <label class="b-contain">
-                <label for="cutup"><span>Cut-up</span></label><br>
-                <input type="radio" id="cutup" name="technique_selector">
-                <div class="b-input"></div>
-              </label><br>
-            </section>
-            <section id="markov_ngram_size_container" class="hidden">
-              <label for="ngram_selector">n-gram Size:</label><br>
-              <section id="ngram_selector">
+          <section id="options-selectors-container">
+            <section id="include-input-container">
+              <label for="input-selection">Select Inputs:</label><br>
+              <section id="input_selector_container">
                 <label class="b-contain">
-                  <input type="radio" class="markov_ngram_size" type="number" value=1 name="ngram_selector" checked/>
-                  <label for="n-gram_size_1">
+                  <input type="checkbox" id="include_input_1" name="include_inputs" value=1 checked />
+                  <label for="include_input_1">
                     <span>1</span>
                   </label>
                   <div class="b-input"></div>
                 </label>
                 <label class="b-contain">
-                  <input type="radio" class="markov_ngram_size" type="number" value=2 name="ngram_selector" />
-                  <label for="n-gram_size_2">
+                  <input type="checkbox" id="include_input_2" name="include_inputs" value=2 />
+                  <label for="include_input_2">
                     <span>2</span>
                   </label>
                   <div class="b-input"></div>
                 </label>
                 <label class="b-contain">
-                  <input type="radio" class="markov_ngram_size" type="number" value=3 name="ngram_selector" />
-                  <label for="n-gram_size_3">
+                  <input type="checkbox" id="include_input_3" name="include_inputs" value=3 />
+                  <label for="include_input_3">
                     <span>3</span>
+                  </label>
+                  <div class="b-input"></div>
+                </label>
+                <label class="b-contain">
+                  <input type="checkbox" id="include_input_4" name="include_inputs" value=4 />
+                  <label for="include_input_4">
+                    <span>4</span>
+                  </label>
+                  <div class="b-input"></div>
+                </label>
+                <label class="b-contain">
+                  <input type="checkbox" id="include_input_5" name="include_inputs" value=5 />
+                  <label for="include_input_5">
+                    <span>5</span>
+                  </label>
+                  <div class="b-input"></div>
+                </label>
+                <label class="b-contain">
+                  <input type="checkbox" id="include_input_6" name="include_inputs" value=6 />
+                  <label for="include_input_6">
+                    <span>6</span>
                   </label>
                   <div class="b-input"></div>
                 </label>
               </section>
             </section>
-            <section id="cutup_block_size_container" class="hidden">
-              Block Size Between:<br>
-              <input id="cutup_block_size" class="cutup_block_size_min" type="number" value=2 /> and <input
-                id="cutup_block_size" class="cutup_block_size_max" type='number' value=5 /> words
-            </section>
-          </section>
-
-          <section id="output-format-container">
-            <label for="output_format">Output Format:</label>
-            <section id="output_format_selector">
+            <section id="technique_selector_container">
+              <label for="technique_selector">Technique:</label><br>
+              <section id="selectors">
                 <label class="b-contain">
-                  <input type="radio" class="output_format" value="prose" name="output_format" checked/>
+                  <label for="markov"><span>Markov</span></label><br>
+                  <input type="radio" id="markov" name="technique_selector" checked>
+                  <div class="b-input"></div>
+                </label><br>
+                <label class="b-contain">
+                  <label for="cutup"><span>Cut-up</span></label><br>
+                  <input type="radio" id="cutup" name="technique_selector">
+                  <div class="b-input"></div>
+                </label><br>
+              </section>
+              <section id="markov_ngram_size_container">
+                <label for="ngram_selector">n-gram Size:</label><br>
+                <section id="ngram_selector">
+                  <label class="b-contain">
+                    <input id="n-gram_size_1" type="radio" class="markov_ngram_size" type="number" value=1
+                      name="ngram_selector" checked />
+                    <label for="n-gram_size_1">
+                      <span>1</span>
+                    </label>
+                    <div class="b-input"></div>
+                  </label>
+                  <label class="b-contain">
+                    <input id="n-gram_size_2" type="radio" class="markov_ngram_size" type="number" value=2
+                      name="ngram_selector" />
+                    <label for="n-gram_size_2">
+                      <span>2</span>
+                    </label>
+                    <div class="b-input"></div>
+                  </label>
+                  <label class="b-contain">
+                    <input id="n-gram_size_3" type="radio" class="markov_ngram_size" type="number" value=3
+                      name="ngram_selector" />
+                    <label for="n-gram_size_3">
+                      <span>3</span>
+                    </label>
+                    <div class="b-input"></div>
+                  </label>
+                </section>
+              </section>
+              <section id="cutup_block_size_container" class="d-none">
+                Block Size Between:<br>
+                <input id="cutup_block_size" class="cutup_block_size_min" type="number" value=2 /> and <input
+                  id="cutup_block_size" class="cutup_block_size_max" type='number' value=5 /> words
+              </section>
+            </section>
+            <section id="output_format_container">
+              <label for="output_format">Format:</label>
+              <section id="selectors">
+                <label class="b-contain">
+                  <input id="prose" type="radio" class="output_format" value="prose" name="output_format" checked />
                   <label for="prose">
                     <span>Prose</span>
                   </label>
                   <div class="b-input"></div>
                 </label>
                 <label class="b-contain">
-                  <input type="radio" class="output_format" value="aphorisms" name="output_format" />
+                  <input type="radio" class="output_format" id="aphorisms" value="aphorisms" name="output_format" />
                   <label for="aphorisms">
                     <span>Aphorisms</span>
                   </label>
                   <div class="b-input"></div>
                 </label>
               </section>
+            </section>
+            <section id="generate-text-container">
+              <button id="generate-text" type="button"><label for="generate-text">Generate Text</label></button><br>
+            </section>
           </section>
-          <section id="generate-text-container">
-            <button id="generate-text"><label for="generate-text">Generate Text</label></button><br>
-          </section>
-
         </section>
         <section id="output-container">
-          <h1>Outputs</h1>
+          <h3>Outputs</h3>
           <ul id="output_tab_list" class="nav nav-tabs nav-justified">
-            <li class="active"><a data-toggle="tab" href="#outputtab1">A</a></li>
-            <li><a data-toggle="tab" href="#outputtab2">B</a></li>
-            <li><a data-toggle="tab" href="#outputtab3">C</a></li>
-            <li><a data-toggle="tab" href="#outputtab4">D</a></li>
-            <li><a data-toggle="tab" href="#outputtab5">E</a></li>
-            <li><a data-toggle="tab" href="#outputtab6">F</a></li>
+            <li class="nav-item" class="active"><a class="nav-link active" data-toggle="tab" href="#outputtab1">A</a>
+            </li>
+            <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#outputtab2">B</a></li>
+            <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#outputtab3">C</a></li>
+            <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#outputtab4">D</a></li>
+            <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#outputtab5">E</a></li>
+            <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#outputtab6">F</a></li>
           </ul>
           <div class="tab-content">
-            <div id="outputtab1" class="tab-pane fade in active">
+            <div id="outputtab1" class="tab-pane fade in active show">
               <textarea cols=78 rows=15 id=input
                 placeholder="Generated text will appear here. Switch tabs to save and edit multiple generated texts."></textarea>
             </div>
@@ -225,7 +423,7 @@
     </section>
     <section id="blurb-container">
       <figure id="blurb">
-        <h1>About Markov Chains</h1>
+        <h2>About Markov Chains</h2>
         <hr>
         <p>A Markov chain is a stochastic model describing a sequence of possible events in which the probability of
           each event
@@ -251,7 +449,7 @@
           which followed
           "The rhombus."</p>
         <br>
-        <h1>Use in Literature</h1>
+        <h2>Use in Literature</h2>
         <hr>
         <section id="subtitle">
           <section id="quote-container">
@@ -290,14 +488,15 @@
           text from an input file.
         </p>
         <br>
-        <h1>Markov Mutagen</h1>
+        <h2>Markov Mutagen</h2>
         <hr>
         <section id="subtitle">
           <section id="quote-container">
             <figure id="quotation">
-              But the marvelous abiity to reach out, without leaving the field of our experience,
+              “But the marvelous abiity to reach out, without leaving the field of our experience,
               to two distinct realities and bring them together to create a spark...and, by removing our systems
-              of reference, to disorient us within our own memories, that is what holds Dada's attention, for the time being.
+              of reference, to disorient us within our own memories, that is what holds Dada's attention, for the time
+              being.”
             </figure>
             <figcaption id="attribution">
               — André Breton, "Max Ernst" (1921)
