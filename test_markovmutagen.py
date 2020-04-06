@@ -1,9 +1,10 @@
+import io
 import os
 import tempfile
 import pytest
 import server
 from formatter import *
-
+from werkzeug.datastructures import FileStorage
 
 @pytest.fixture
 def client():
@@ -67,4 +68,20 @@ def test_sample_document(client):
                           'url=https://archive.org/stream/CalvinoItaloCosmicomics/Calvino-Italo-Cosmicomics_djvu.txt' +
                           '&format=document')
     assert response.status_code == 200
+
+def test_upload_document(client):
+    file = open("tests/test.epub", "rb")
+    upload = (io.BytesIO(file.read()), 'test.epub')
+    response = client.post('/uploaddocument?format=document',
+                             content_type='multipart/form-data',
+                             data={'file': upload},
+                             follow_redirects=True)
+    assert response.data.decode('utf-8')[0:50] == '_Planus_ by Blaise Cendrars\n\nEdited and translated'
+    file = open("tests/alice.txt", "rb")
+    upload = (io.BytesIO(file.read()), 'alice.txt')
+    response = client.post('/uploaddocument?format=document',
+                           content_type='multipart/form-data',
+                           data={'file': upload},
+                           follow_redirects=True)
+    assert response.data.decode('utf-8')[0:52] == "Project Gutenberg's Alice's Adventures in Wonderland"
 
