@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
+import os
 import random
+import tempfile
+import html2text
+from epub_conversion.utils import open_book, convert_epub_to_lines
 from flask import Flask, request, render_template
 from generativepoetry.decomposer import cutup as cutup_technique
 from generativepoetry.decomposer import markov as markov_technique
@@ -13,6 +17,7 @@ app = Flask(__name__)
 @app.route('/')
 def index():
   return render_template('index.html')
+
 
 @app.route("/sampledocument", methods=['GET'])
 def sample_document_routet():
@@ -33,6 +38,27 @@ def sample_document_routet():
         if 'archive.org' in url:
             document = ParsedText(get_internet_archive_document(url))
     return sample_document(document, format, sample_size)
+
+
+@app.route("/uploaddocument", methods=['POST'])
+def upload_document_route():
+    upload = request.files['file']
+    if upload.filename.endswith('epub'):
+        handle, filename = tempfile.mkstemp()
+        os.close(handle)
+        upload.save(filename)
+        book = open_book(filename)
+        h = html2text.HTML2Text()
+        file_text = h.handle(" ".join(convert_epub_to_lines(book)))
+    elif upload.filename.endswith('txt'):
+        file_text = upload.read()
+    else:
+        raise Exception("Invalid file type")
+    document = ParsedText(file_text)
+    format = request.args.get('format')
+    sample_size = int(request.args.get('sample_size')) if request.args.get('sample_size') else False
+    return sample_document(document, format, sample_size)
+
 
 @app.route("/markov", methods=['POST'])
 def markov():
