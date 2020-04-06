@@ -1,12 +1,13 @@
 onload = function () {
-    var button = document.querySelector("button");
+    var button = document.querySelector("#generate-text");
     var show_output = function () {
-        var active_output_parent_id = document.querySelector("#output_tab_list").querySelector(".active").querySelector("a").getAttribute("href");
+        var active_output_parent_id = document.querySelector("#output_tab_list").querySelector("a.nav-link.active").getAttribute("href");
         var active_output = document.querySelector(active_output_parent_id).querySelector("textarea");
         active_output.value = this.responseText;
     }
     button.onclick = function () {
         //Grab the values of which tabs the generator will pull input from
+
         var input_tab_numbers = $("input[id^=include_input]:checked").map(function () { return this.value; }).get();
         var text_to_process = "";
         for (index in input_tab_numbers) {
@@ -37,20 +38,34 @@ onload = function () {
             req.send(text_to_process)
         }
     }
-    $('input[id=cutup_block_size]').change(function () {
+    $('input[id=cutup_block_size]').on('change', function () {
         if ($(this).val() > 99) {
             $(this).val(99)
         } else if ($(this).val() < 1) {
             $(this).val(1)
         }
     });
-    $('input[name=technique_selector]').change(function () {
+    $('input[name=technique_selector]').on('change', function () {
         if ($(this).attr('id') == "cutup") {
-            $("#cutup_block_size_container").removeClass("hidden")
-            $("#markov_ngram_size_container").addClass("hidden")
+            $("#cutup_block_size_container").removeClass("d-none")
+            $("#markov_ngram_size_container").addClass("d-none")
         } else {
-            $("#cutup_block_size_container").addClass("hidden")
-            $("#markov_ngram_size_container").removeClass("hidden")
+            $("#cutup_block_size_container").addClass("d-none")
+            $("#markov_ngram_size_container").removeClass("d-none")
         }
     });
-}
+    const fileSelect = document.getElementById("fileSelect"),
+        fileElem = document.getElementById("fileElem");
+
+
+    document.querySelector("#fileSelect").click(function () {
+        document.querySelector("#fileElem").trigger('click');
+    })
+
+    fileSelect.addEventListener("click", function (e) {
+        if (fileElem) {
+            fileElem.click();
+        }
+    }, false);
+
+};
