@@ -75,7 +75,7 @@ def markov():
 
 @app.route("/cutup", methods=['POST'])
 def cutup():
-    cleaned_input = clean(request.get_data().decode(encoding='UTF-8'))
+    cleaned_input = request.get_json()['input']
     cutup_min_size =  int(request.args.get('cutupmin'))
     cutup_max_size =  int(request.args.get('cutupmax'))
     output = " ".join(cutup_technique(cleaned_input, min_cutout_words=cutup_min_size, max_cutout_words=cutup_max_size))
