@@ -92,18 +92,4 @@ onload = function () {
         }
     });
 
-    const fileSelect = document.getElementById("fileSelect"),
-        fileElem = document.getElementById("fileElem");
-
-
-    document.querySelector("#fileSelect").click(function () {
-        document.querySelector("#fileElem").trigger('click');
-    })
-
-    fileSelect.addEventListener("click", function (e) {
-        if (fileElem) {
-            fileElem.click();
-        }
-    }, false);
-
 };
