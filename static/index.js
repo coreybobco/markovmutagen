@@ -1,5 +1,5 @@
 onload = function () {
-    var button = document.querySelector("#generate-text");
+    var button = document.querySelector("#generate_text");
     var show_output = function () {
         var active_output_parent_id = document.querySelector("#output_tab_list").querySelector("a.nav-link.active").getAttribute("href");
         var active_output = document.querySelector(active_output_parent_id).querySelector("textarea");
@@ -54,6 +54,44 @@ onload = function () {
             $("#markov_ngram_size_container").removeClass("d-none")
         }
     });
+
+    $('input[name=sample_size_selector]').on('change', function () {
+        if ($(this).attr('id') == "document") {
+            $("#paragraph-size").addClass("d-none")
+            $("#sentence-size").addClass("d-none")
+        } else if ($(this).attr('id') == "sentence") {
+            $("#sentence-size").removeClass("d-none")
+            $("#paragraph-size").addClass("d-none")
+        } else {
+            $("#paragraph-size").removeClass("d-none")
+            $("#sentence-size").addClass("d-none")
+        }
+    });
+
+    $('input[name=sampler_selector]').on('change', function () {
+        if ($(this).attr('id') == "library") {
+            $("#fileSelect-container").addClass("d-none")
+            $("#url-container").addClass("d-none")
+            $("#random-container").addClass("d-none")
+            $("#library_select_container").removeClass("d-none")
+        } else if ($(this).attr('id') == "url") {
+            $("#fileSelect-container").addClass("d-none")
+            $("#url-container").removeClass("d-none")
+            $("#random-container").addClass("d-none")
+            $("#library_select_container").addClass("d-none")
+        } else if ($(this).attr('id') == "upload") {
+            $("#fileSelect-container").removeClass("d-none")
+            $("#url-container").addClass("d-none")
+            $("#random-container").addClass("d-none")
+            $("#library_select_container").addClass("d-none")
+        } else {
+            $("#fileSelect-container").addClass("d-none")
+            $("#url-container").addClass("d-none")
+            $("#random-container").removeClass("d-none")
+            $("#library_select_container").addClass("d-none")
+        }
+    });
+
     const fileSelect = document.getElementById("fileSelect"),
         fileElem = document.getElementById("fileElem");
 
