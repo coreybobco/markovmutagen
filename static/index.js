@@ -1,3 +1,21 @@
+async function postData(url = '', data = {}) {
+                // Default options are marked with *
+                const response = await fetch(url, {
+                    method: 'POST', // *GET, POST, PUT, DELETE, etc.
+                    mode: 'cors', // no-cors, *cors, same-origin
+                    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+                    credentials: 'same-origin', // include, *same-origin, omit
+                    headers: {
+                        'Content-Type': 'application/json'
+                        //'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    redirect: 'follow', // manual, *follow, error
+                    referrerPolicy: 'no-referrer', // no-referrer, *client
+                    body: JSON.stringify(data) // body data type must match "Content-Type" header
+                });
+                return response.json(); // parses JSON response into native JavaScript objects
+            }
+
 onload = function () {
     var button = document.querySelector("#generate_text");
     var show_output = function () {
@@ -32,10 +50,14 @@ onload = function () {
             var output_format = document.querySelector(".output_format:checked").value;
             post_parameters += "&output_format=" + output_format
             console.log(output_format);
-            var req = new XMLHttpRequest()
-            req.addEventListener("load", show_output)
-            req.open("post", post_parameters, true)
-            req.send(text_to_process)
+
+
+            postData('/' + post_parameters, { 'input': text_to_process })
+                .then((data) => {
+                    var active_output_parent_id = document.querySelector("#output_tab_list").querySelector("a.nav-link.active").getAttribute("href");
+                    var active_output = document.querySelector(active_output_parent_id).querySelector("textarea");
+                    active_output.value = data['output'];
+                });
         }
     }
     $('input[id=cutup_block_size]').on('change', function () {
