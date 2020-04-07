@@ -58,7 +58,7 @@ def upload_document_route():
     document = ParsedText(file_text)
     format = request.args.get('format')
     sample_size = int(request.args.get('sample_size')) if request.args.get('sample_size') else False
-    return sample_document(document, format, sample_size)
+    return jsonify(sample=sample_document(document, format, sample_size))
 
 
 @app.route("/markov", methods=['POST'])
