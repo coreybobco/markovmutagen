@@ -19,6 +19,7 @@ async function postData(url = '', data = {}) {
 onload = function () {
     var generate_text_button = document.querySelector("#generate_text");
     generate_text_button.onclick = function () {
+        generate_text_button.disabled = true;
         //Grab the values of which tabs the generator will pull input from
 
         var input_tab_numbers = $("input[id^=include_input]:checked").map(function () { return this.value; }).get();
@@ -52,6 +53,7 @@ onload = function () {
                     var active_output_parent_id = document.querySelector("#output_tab_list").querySelector("a.nav-link.active").getAttribute("href");
                     var active_output = document.querySelector(active_output_parent_id).querySelector("textarea");
                     active_output.value = data['output'];
+                    generate_text_button.disabled = false;
                 });
         }
     }
@@ -61,6 +63,7 @@ onload = function () {
         sample_button.disabled = true;
         var format = "";
         var sample_size;
+        var url = false;
         if (document.querySelector("#url").checked) {
             url = document.querySelector("#sample_source_url").value;
         }
@@ -76,25 +79,69 @@ onload = function () {
         }
 
         if (document.querySelector("#random").checked || document.querySelector("#url").checked) {
-            var url_route = "/sampledocument?" + "format=" + format
+            var url_route = "/sampledocument?" + "format=" + format;
             if (sample_size) {
                 url_route += "&sample_size=" + sample_size;
             }
             if (url) {
                 url_route += "&url=" + url;
             }
+            fetch(url_route)
+                .then((response) => {
+                    return response.json();
+                })
+                .then((data) => {
+                    var active_input_parent_id = document.querySelector("#input_tab_list").querySelector("a.nav-link.active").getAttribute("href");
+                    var active_input = document.querySelector(active_input_parent_id).querySelector("textarea");
+                    active_input.value = data['sample'];
+                    sample_button.disabled = false;
+                });
+
+        } else if (document.querySelector("#upload").checked) {
+            var url_route = "/uploaddocument?" + "format=" + format;
+            if (sample_size) {
+                url_route += "&sample_size=" + sample_size;
+            }
+            const fileInput = document.querySelector('input[type="file"]');
+            const formData = new FormData();
+
+            formData.append('file', fileInput.files[0]);
+
+            const options = {
+                method: 'POST',
+                body: formData,
+            };
+
+            fetch(url_route, options)
+                .then((response) => {
+                    return response.json();
+                })
+                .then((data) => {
+                    var active_input_parent_id = document.querySelector("#input_tab_list").querySelector("a.nav-link.active").getAttribute("href");
+                    var active_input = document.querySelector(active_input_parent_id).querySelector("textarea");
+                    active_input.value = data['sample'];
+                    sample_button.disabled = false;
+                });
+        } else if (document.querySelector("#library").checked) {
+            var url_route = "/sampledocument?" + "format=" + format;
+            var library_url = $("#library_selection").val();
+            url_route += "&url=" + library_url;
+            if (sample_size) {
+                url_route += "&sample_size=" + sample_size;
+            }
+
+            fetch(url_route)
+                .then((response) => {
+                    return response.json();
+                })
+                .then((data) => {
+                    var active_input_parent_id = document.querySelector("#input_tab_list").querySelector("a.nav-link.active").getAttribute("href");
+                    var active_input = document.querySelector(active_input_parent_id).querySelector("textarea");
+                    active_input.value = data['sample'];
+                    sample_button.disabled = false;
+                });
         }
 
-        fetch(url_route)
-            .then((response) => {
-                return response.json();
-            })
-            .then((data) => {
-                var active_input_parent_id = document.querySelector("#input_tab_list").querySelector("a.nav-link.active").getAttribute("href");
-                var active_input = document.querySelector(active_input_parent_id).querySelector("textarea");
-                active_input.value = data['sample'];
-                sample_button.disabled = false;
-            });
     }
 
 
