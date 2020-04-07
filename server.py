@@ -28,7 +28,8 @@ def sample_document_routet():
     if not url:
         language = False
         while language != "en":
-            document_id = random.randint(1, 61720)  # Pick book at random (max id is currently 53273)
+            # document_id = random.randint(1, 61720)  # Pick book at random (max id is currently 53273)
+            document_id = random.randint(1, 10000)  # Pick book at random (max id is currently 53273)
             language_set = get_metadata('language', document_id)
             language = list(language_set)[0] if len(language_set) else False
         url = "http://www.gutenberg.org/ebooks/" + str(document_id)

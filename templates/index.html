@@ -125,10 +125,11 @@
               <section id="url-container" class="d-none">
                 <section class="input-group mb-3">
                   <div class="input-group-prepend">
-                    <span class="form-control" class="input-group-text" id="basic-addon3">Add via URL:</span>
+                    <span class="form-control" class="input-group-text" id="basic-addon3">URL:</span>
                   </div>
-                  <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+                  <input type="text" class="form-control" id="sample_source_url" aria-describedby="basic-addon3">
                 </section>
+                <p>Add a Project Gutenburg or Archive.org url.</p>
               </section>
 
               <section id="random-container" class="d-none">
@@ -188,12 +189,12 @@
 
                   <section class="d-none" id="paragraph-size">
                     <section class="card card-body mb-3">
-                      <input id="sample_size_input" type="number" value=2 /> random paragraphs
+                      <input id="sample_size_paragraph" type="number" value=2 /> random paragraphs
                     </section>
                   </section>
                   <section class="d-none" id="sentence-size">
                     <section class="card card-body">
-                      <input id="sample_size_input" type="number" value=2 /> random sentences
+                      <input id="sample_size_sentence" type="number" value=2 /> random sentences
                     </section>
                   </section>
               </form>
@@ -202,7 +203,7 @@
           <section id="sampler_button_container">
             <div class="dropdown btn-group">
 
-              <button type="button" class="btn btn-outline-secondary">Sample</button>
+              <button id="sample_button" type="button" class="btn btn-outline-secondary">Sample</button>
           </section>
         </section>
 
