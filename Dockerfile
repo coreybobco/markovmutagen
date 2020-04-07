@@ -15,5 +15,7 @@ RUN python3 -m nltk.downloader stopwords
 RUN python3 -m nltk.downloader punkt
 RUN python3 -m spacy download en_core_web_sm
 RUN python3 -m nltk.downloader averaged_perceptron_tagger
+COPY update_cache.py update_cache.py
+RUN python3 update_cache.py
 
 ENTRYPOINT python3 server.py
