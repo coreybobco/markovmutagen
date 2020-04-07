@@ -106,13 +106,16 @@
 
             <section id="sampler_type_container">
               <section id="library_select_container" class="input-group mb-3">
-                <select class="custom-select" id="inputGroupSelect01">
+                <select class="custom-select" id="library_selection">
                   <option selected>Choose from our library...</option>
-                  <option value="random">✺ Random Project Gutenburg Document</option>
-                  <option value="0">Alice in Wonderland</option>
-                  <option value="0">Pride and Prejudice</option>
-                  <option value="0">The Importance of Being Earnest</option>
-                  <option value="0">Ion by Plato</option>
+                  <option value="http://www.gutenberg.org/ebooks/11">Alice in Wonderland</option>
+                  <option value="http://www.gutenberg.org/files/2148/2148-0.txt">Complete Works of Poe</option>
+                  <option value="http://www.gutenberg.org/ebooks/844">The Importance of Being Earnest</option>
+                  <option value="http://www.gutenberg.org/ebooks/1635">Ion by Plato</option>
+                  <option value="http://www.gutenberg.org/ebooks/2701">Moby Dick</option>
+                  <option
+                    value="https://archive.org/stream/DisciplinePunishTheBirthOfThePrison/Discipline%20%26%20Punish-The%20Birth%20of%20the%20Prison_djvu.txt">
+                    Discipline and Punish</option>
                 </select>
               </section>
 
@@ -125,10 +128,11 @@
               <section id="url-container" class="d-none">
                 <section class="input-group mb-3">
                   <div class="input-group-prepend">
-                    <span class="form-control" class="input-group-text" id="basic-addon3">Add via URL:</span>
+                    <span class="form-control" class="input-group-text" id="basic-addon3">URL:</span>
                   </div>
-                  <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+                  <input type="text" class="form-control" id="sample_source_url" aria-describedby="basic-addon3">
                 </section>
+                <p>Add a Project Gutenburg or Archive.org url.</p>
               </section>
 
               <section id="random-container" class="d-none">
@@ -188,12 +192,12 @@
 
                   <section class="d-none" id="paragraph-size">
                     <section class="card card-body mb-3">
-                      <input id="sample_size_input" type="number" value=2 /> random paragraphs
+                      <input id="sample_size_paragraph" type="number" value=2 /> random paragraphs
                     </section>
                   </section>
                   <section class="d-none" id="sentence-size">
                     <section class="card card-body">
-                      <input id="sample_size_input" type="number" value=2 /> random sentences
+                      <input id="sample_size_sentence" type="number" value=2 /> random sentences
                     </section>
                   </section>
               </form>
@@ -202,7 +206,7 @@
           <section id="sampler_button_container">
             <div class="dropdown btn-group">
 
-              <button type="button" class="btn btn-outline-secondary">Sample</button>
+              <button id="sample_button" type="button" class="btn btn-outline-secondary">Sample</button>
           </section>
         </section>
 
