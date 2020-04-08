@@ -123,6 +123,8 @@
                 <button type="button" class="btn btn-outline-secondary"><label id="fileSelect" for="fileElem">⇪ Upload
                     .epub or .txt file</label></button>
                 <input type="file" id="fileElem" accept=".epub,.txt" class="visually-hidden">
+                <p>Search for .epub files on <a href="https://monoskop.org/Library_Genesis" target=blank>Library
+                    Genesis</a></p>
               </section>
 
               <section id="url-container" class="d-none">
@@ -133,10 +135,11 @@
                   <input type="text" class="form-control" id="sample_source_url" aria-describedby="basic-addon3">
                 </section>
                 <p>Add a Project Gutenburg or Archive.org url.</p>
+
               </section>
 
               <section id="random-container" class="d-none">
-                A random Project Gutenburg document will be selected.
+                <p>A random Project Gutenburg document will be selected.</p>
               </section>
             </section>
             <section id="sampler_input_container">
@@ -189,15 +192,16 @@
 
 
 
-
-                  <section class="d-none" id="paragraph-size">
-                    <section class="card card-body mb-3">
-                      <input id="sample_size_paragraph" type="number" value=2 /> random paragraphs
+                  <section id="sample_size_container">
+                    <section class="d-none" id="paragraph-size">
+                      <section class="card card-body m-3">
+                        <input id="sample_size_paragraph" type="number" value=2 /> random paragraphs
+                      </section>
                     </section>
-                  </section>
-                  <section class="d-none" id="sentence-size">
-                    <section class="card card-body">
-                      <input id="sample_size_sentence" type="number" value=2 /> random sentences
+                    <section class="d-none" id="sentence-size">
+                      <section class="card card-body m-3">
+                        <input id="sample_size_sentence" type="number" value=2 /> random sentences
+                      </section>
                     </section>
                   </section>
               </form>
