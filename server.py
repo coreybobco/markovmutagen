@@ -67,7 +67,7 @@ def markov():
     # cleaned_input = clean(request.get_data().decode(encoding='UTF-8'))
     ngram_size = int(request.args.get('ngram_size'))
     output_format = request.args.get('output_format')
-    output = " ".join(markov_technique(cleaned_input, ngram_size=ngram_size))
+    output = " ".join(markov_technique(cleaned_input, ngram_size=ngram_size, num_output_sentences=13))
     if output_format == 'aphorisms':
         output = format_aphorisms(output)
     return jsonify(output=output)
