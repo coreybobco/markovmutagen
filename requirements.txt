@@ -1,5 +1,5 @@
 epub-conversion==1.0.15
-Flask==1.1.1
+Flask==2.3.2
 generativepoetry>=0.3.4
 -e git+https://github.com/coreybobco/gutenberg_cleaner@master#egg=gutenberg_cleaner
 html2text==2020.1.16
